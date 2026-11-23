@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AZOVAH · Finalizar assinatura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--v:#9c1650;--vD:#6d0c37;--vE:#3d0620;--pk:#d6336c;--pkS:#fdeef4;--ink:#2a1a24;--mut:#6b5560;--line:#eddde4;--ok:#0f7a5a;--okS:#e9f7f0}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#f8f1f4;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}
+.top{background:linear-gradient(120deg,#7d0f3f,#3d0620);color:#fff;position:relative;overflow:hidden}
+.top::after{content:"";position:absolute;inset:0;background-image:radial-gradient(#ffffff14 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.top-i{max-width:1160px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;gap:16px;position:relative;z-index:1}
+.top img{height:38px}
+.seg{margin-left:auto;display:flex;align-items:center;gap:8px;font:600 13px Inter;color:#ffd6e5}
+.seg svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+.steps{max-width:1160px;margin:0 auto;padding:0 24px 22px;display:flex;gap:8px;position:relative;z-index:1}
+.st{display:flex;align-items:center;gap:8px;font:600 13px Inter;color:#f6bfd3;opacity:.7}
+.st b{width:24px;height:24px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;font-size:12px}
+.st.on{opacity:1;color:#fff}.st.on b{background:#fff;color:var(--v);border-color:#fff}.st.ok{opacity:1;color:#bff0d8}.st.ok b{background:#bff0d8;color:#0b5a42;border-color:#bff0d8}
+.st+.st::before{content:"";width:28px;height:1.5px;background:#ffffff55;margin-right:4px}
+.wrap{max-width:1160px;margin:-2px auto 0;padding:28px 24px 60px;display:flex;gap:28px;align-items:flex-start}
+.main{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:18px}
+.side{flex:0 0 360px;position:sticky;top:20px}
+.card{background:#fff;border-radius:22px;padding:24px 26px;box-shadow:0 20px 50px -36px #6d0c37;border:1px solid var(--line)}
+.card h2{margin:0 0 4px;font:700 20px Lora,serif;display:flex;align-items:center;gap:10px}
+.card h2 i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--pkS);color:var(--v);display:grid;place-items:center;font:800 13px Inter}
+.card .sub{margin:0 0 18px;color:var(--mut);font-size:14px}
+.planos{display:flex;gap:12px;flex-wrap:wrap}
+.pl{flex:1 1 180px;position:relative;border:2px solid var(--line);border-radius:18px;padding:16px 16px 14px;cursor:pointer;background:#fff;transition:.15s;text-align:left}
+.pl:hover{border-color:#e9b3c8}.pl.on{border-color:var(--v);background:linear-gradient(160deg,#fff,#fdf0f6);box-shadow:0 14px 30px -20px var(--v)}
+.pl .tag{position:absolute;top:-11px;right:14px;background:var(--v);color:#fff;font:800 10.5px Inter;letter-spacing:.08em;padding:4px 9px;border-radius:999px}
+.pl .tag.l{background:#fde3ec;color:var(--v)}
+.pl h3{margin:0;font:700 16px Inter}.pl .pr{margin:6px 0 2px;font:800 26px Inter;color:var(--ink)}.pl .pr small{font:600 13px Inter;color:var(--mut)}
+.pl p{margin:0;font-size:12.5px;color:var(--mut)}
+.pl .rd{position:absolute;top:16px;right:16px;width:20px;height:20px;border-radius:50%;border:2px solid #d9c3cd}.pl.on .rd{border-color:var(--v);background:radial-gradient(var(--v) 45%,#fff 50%)}
+.grid{display:flex;flex-wrap:wrap;gap:14px}
+.f{flex:1 1 220px;display:flex;flex-direction:column;gap:6px;min-width:0}.f.full{flex-basis:100%}
+.f label{font:600 13px Inter;color:#4a3640}
+.f input,.f select{height:48px;border:1.5px solid #e3d2da;border-radius:12px;padding:0 14px;font-size:15px;background:#fff;outline:none;transition:.15s;width:100%}
+.f input:focus,.f select:focus{border-color:var(--pk);box-shadow:0 0 0 4px #d6336c1f}
+.f.err input{border-color:#d93025;background:#fff7f6}.f .e{font-size:12px;color:#c5221f;min-height:0}
+.tabs{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.tb{flex:1 1 120px;display:flex;align-items:center;justify-content:center;gap:9px;height:56px;border:2px solid var(--line);border-radius:14px;background:#fff;cursor:pointer;font:700 15px Inter;color:#4a3640}
+.tb svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8}.tb.on{border-color:var(--v);color:var(--v);background:#fdf3f7}.tb:disabled{opacity:.4;cursor:not-allowed}
+.tb small{font:700 10px Inter;background:var(--okS);color:var(--ok);padding:2px 6px;border-radius:6px}
+.ccard{width:100%;max-width:380px;aspect-ratio:1.6;border-radius:18px;padding:20px 22px;color:#fff;background:linear-gradient(135deg,#b01d5c,#3d0620 70%);box-shadow:0 24px 40px -22px #3d0620;display:flex;flex-direction:column;justify-content:space-between;margin-bottom:18px;position:relative;overflow:hidden}
+.ccard::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:#ffffff14}
+.ccard .chip{width:42px;height:30px;border-radius:7px;background:linear-gradient(135deg,#f6d77a,#c89b2c)}
+.ccard .num{font:600 20px 'Courier New',monospace;letter-spacing:.12em}.ccard .bt{display:flex;justify-content:space-between;font:600 12px Inter;text-transform:uppercase;letter-spacing:.06em;opacity:.9}
+.ccard .br{position:absolute;right:20px;top:18px;font:800 italic 18px Inter;opacity:.9}
+.gwbox{border:1.5px dashed #e0c3cf;border-radius:14px;padding:14px 16px;background:#fffafc;font-size:13px;color:var(--mut);display:flex;gap:10px;align-items:flex-start;margin-top:14px}
+.gwbox svg{width:20px;height:20px;flex:none;fill:none;stroke:var(--ok);stroke-width:2}
+.demo{display:flex;gap:10px;align-items:center;background:#fff8e0;border:1px solid #f0d88a;color:#6b5000;border-radius:12px;padding:10px 14px;font-size:13px}
+.demo b{color:#4d3900}
+.pixinfo{display:flex;gap:14px;flex-wrap:wrap}.pixinfo div{flex:1 1 180px;background:#f6fbf9;border-radius:14px;padding:14px;font-size:13.5px;color:#2f4a40}.pixinfo b{display:block;color:var(--ok);margin-bottom:2px}
+.pay{width:100%;height:60px;border:0;border-radius:999px;background:linear-gradient(135deg,#c2245f,#7d0f3f);color:#fff;font:800 17px Inter;cursor:pointer;box-shadow:0 18px 36px -16px #7d0f3f;display:flex;align-items:center;justify-content:center;gap:10px;transition:.15s}
+.pay:hover{filter:brightness(1.08);transform:translateY(-1px)}.pay:disabled{opacity:.6;cursor:wait;transform:none}
+.pay svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2}
+.terms{font-size:12px;color:var(--mut);text-align:center;margin:12px 0 0}
+.sum h3{margin:0 0 14px;font:700 18px Lora,serif}
+.sum .row{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:7px 0;color:#4a3640}
+.sum .row.t{border-top:1px solid var(--line);margin-top:8px;padding-top:14px;font:800 20px Inter;color:var(--ink)}
+.sum .row.t small{display:block;font:500 12px Inter;color:var(--mut);text-align:right}
+.sum .eco{background:var(--okS);color:var(--ok);font:700 13px Inter;border-radius:10px;padding:9px 12px;margin-top:10px;text-align:center}
+.sum ul{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:8px}
+.sum li{display:flex;gap:9px;font-size:13.5px;color:#4a3640}.sum li::before{content:"✓";color:var(--ok);font-weight:800}
+.trust{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.trust div{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--mut)}
+.trust svg{width:22px;height:22px;flex:none;fill:none;stroke:var(--v);stroke-width:1.8}
+.hide{display:none!important}
+/* Pix */
+.pixw{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.qr{width:220px;height:220px;border-radius:16px;background:#fff;border:1px solid var(--line);padding:12px;flex:none;position:relative}
+.qr svg,.qr img{width:100%;height:100%;display:block}
+.qr .lb{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border-radius:8px;padding:4px 7px;font:800 11px Inter;color:var(--v)}
+.cc{display:flex;gap:8px;margin:12px 0}.cc input{flex:1;height:46px;border:1.5px solid #e3d2da;border-radius:12px;padding:0 12px;font:500 13px 'Courier New',monospace;background:#fafafa;min-width:0}
+.cc button,.btn2{height:46px;border:0;border-radius:12px;background:var(--ok);color:#fff;font:700 14px Inter;padding:0 16px;cursor:pointer}
+.btn2.out{background:#fff;color:var(--v);border:1.5px solid #e7c3d2}
+.timer{display:flex;align-items:center;gap:8px;font:600 14px Inter;color:var(--mut)}.timer b{font:800 18px Inter;color:var(--v)}
+.wait{display:flex;align-items:center;gap:10px;font-size:14px;color:#4a3640;margin-top:12px}.spin{width:18px;height:18px;border-radius:50%;border:2.5px solid #f1cddb;border-top-color:var(--v);animation:sp 1s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+/* sucesso */
+.ok-h{text-align:center;padding:10px 0 6px}
+.ok-ic{width:86px;height:86px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,#19a77a,#0f6a4e);display:grid;place-items:center;box-shadow:0 18px 36px -14px #0f6a4e;animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
+.ok-ic svg{width:44px;height:44px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round}@keyframes pop{from{transform:scale(.3);opacity:0}}
+.ok-h h2{justify-content:center;font-size:26px}.ok-h p{color:var(--mut);font-size:15px;margin:6px auto 0;max-width:520px;line-height:1.55}
+.passos{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.ps{flex:1 1 180px;background:#fdf6f9;border-radius:16px;padding:16px}.ps b{display:flex;width:30px;height:30px;border-radius:50%;background:var(--v);color:#fff;align-items:center;justify-content:center;font:800 14px Inter;margin-bottom:8px}.ps h4{margin:0 0 4px;font:700 15px Inter}.ps p{margin:0;font-size:13px;color:var(--mut);line-height:1.5}
+.mailp{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:6px}.mailp .mh{background:#f6f2f4;padding:10px 14px;font-size:12.5px;color:var(--mut);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.mailp iframe{width:100%;height:560px;border:0;display:block;background:#f6eef2}
+.conf{position:fixed;inset:0;pointer-events:none;z-index:50}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#2a1a24;color:#fff;padding:12px 18px;border-radius:12px;font:600 14px Inter;z-index:60;opacity:0;transition:.25s}.toast.on{opacity:1}
+.alert{background:#fff2f2;border:1px solid #f3c1c1;color:#a3181b;border-radius:12px;padding:12px 14px;font-size:14px}
+@media(max-width:920px){.wrap{flex-direction:column-reverse}.side{position:static;flex-basis:auto;width:100%}.steps .st span{display:none}}
+@media(max-width:920px){.sum ul,.trust{display:none}}
+@media(max-width:520px){.ccard .num{font-size:16px;letter-spacing:.06em}.card{padding:20px 18px;border-radius:18px}.top img{height:30px}.seg span{display:none}.pixw{justify-content:center}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-i"><img src="data:image/webp;base64,__LOGO__" alt="AZOVAH Numerologia"><div class="seg"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Pagamento 100% seguro</span></div></div>
+  <div class="steps" id="steps"><div class="st on" data-s="1"><b>1</b><span>Plano e dados</span></div><div class="st" data-s="2"><b>2</b><span>Pagamento</span></div><div class="st" data-s="3"><b>3</b><span>Acesso liberado</span></div></div>
+</header>
+
+<div class="wrap">
+  <main class="main" id="main">
+    <!-- etapa 1 e 2: formulário -->
+    <form id="fm" novalidate>
+      <section class="card">
+        <h2><i>1</i>Escolha o seu plano</h2><p class="sub">Todos os planos liberam o sistema completo. Muda só a forma de pagar.</p>
+        <div class="planos" id="planos"></div>
+      </section>
+      <section class="card" style="margin-top:18px">
+        <h2><i>2</i>Seus dados de acesso</h2><p class="sub">O seu <b>e-mail será o seu login</b>. Enviamos para ele a senha provisória logo após o pagamento.</p>
+        <div class="grid">
+          <div class="f full"><label for="nome">Nome completo</label><input id="nome" autocomplete="name" placeholder="Como no documento"><span class="e"></span></div>
+          <div class="f"><label for="email">E-mail (será o seu login)</label><input id="email" type="email" autocomplete="email" placeholder="voce@email.com"><span class="e"></span></div>
+          <div class="f"><label for="email2">Confirme o e-mail</label><input id="email2" type="email" autocomplete="off" placeholder="repita o e-mail"><span class="e"></span></div>
+          <div class="f"><label for="cpf">CPF</label><input id="cpf" inputmode="numeric" placeholder="000.000.000-00"><span class="e"></span></div>
+          <div class="f"><label for="zap">WhatsApp</label><input id="zap" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000"><span class="e"></span></div>
+        </div>
+      </section>
+      <section class="card" style="margin-top:18px">
+        <h2><i>3</i>Forma de pagamento</h2><p class="sub">Escolha como prefere pagar.</p>
+        <div class="tabs" id="tabs">
+          <button type="button" class="tb" data-m="cartao"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19M6 15h4"/></svg>Cartão</button>
+          <button type="button" class="tb" data-m="pix"><svg viewBox="0 0 24 24"><path d="M12 3l4 4-4 4-4-4zM12 13l4 4-4 4-4-4zM3 12l4-4 4 4-4 4zM13 12l4-4 4 4-4 4z"/></svg>Pix <small>NA HORA</small></button>
+          <button type="button" class="tb" data-m="boleto"><svg viewBox="0 0 24 24"><path d="M4 5v14M7 5v14M10 5v14M14 5v14M16 5v14M20 5v14"/></svg>Boleto</button>
+        </div>
+        <div id="pgCartao">
+          <div class="ccard" aria-hidden="true"><span class="br" id="ccBr">AZOVAH</span><span class="chip"></span><span class="num" id="ccNum">•••• •••• •••• ••••</span><div class="bt"><span id="ccNome">NOME NO CARTÃO</span><span id="ccVal">MM/AA</span></div></div>
+          <div id="gwCard"><!-- os campos seguros do gateway entram aqui em produção -->
+            <div class="grid">
+              <div class="f full"><label for="cn">Número do cartão</label><input id="cn" inputmode="numeric" autocomplete="off" placeholder="0000 0000 0000 0000"><span class="e"></span></div>
+              <div class="f full"><label for="cnm">Nome impresso no cartão</label><input id="cnm" autocomplete="off" placeholder="Como está no cartão"><span class="e"></span></div>
+              <div class="f"><label for="cv">Validade</label><input id="cv" inputmode="numeric" autocomplete="off" placeholder="MM/AA"><span class="e"></span></div>
+              <div class="f"><label for="cc">CVV</label><input id="cc" inputmode="numeric" autocomplete="off" placeholder="123"><span class="e"></span></div>
+            </div>
+          </div>
+          <div class="grid" style="margin-top:14px"><div class="f full"><label for="parc">Parcelamento</label><select id="parc"></select></div></div>
+          <div class="gwbox"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span id="gwTxt">Os dados do cartão vão direto para o processador de pagamento, criptografados. O AZOVAH nunca vê nem guarda o número do seu cartão.</span></div>
+        </div>
+        <div id="pgPix" class="hide"><div class="pixinfo"><div><b>Aprovação imediata</b>O acesso é liberado assim que o Pix cair, em segundos.</div><div><b>Sem taxa</b>Pague pelo app do seu banco com QR Code ou copia e cola.</div></div></div>
+        <div id="pgBoleto" class="hide"><div class="pixinfo"><div><b>Compensação em até 3 dias úteis</b>O acesso é liberado automaticamente quando o banco confirmar.</div><div><b>Pague em qualquer banco</b>Use a linha digitável no app ou na lotérica.</div></div></div>
+        <div id="erro" class="alert hide" style="margin-top:16px"></div>
+        <div class="demo hide" id="demoBox" style="margin-top:16px">⚙️ <span><b>Modo demonstração:</b> nada é cobrado e nenhum dado é enviado. Use qualquer cartão de teste (ex.: 4111 1111 1111 1111). O gateway real entra quando você informar o banco.</span></div>
+        <button class="pay" id="pay" style="margin-top:20px"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="payTx">Pagar</span></button>
+        <p class="terms">Ao pagar você concorda com os Termos de uso e a Política de privacidade do AZOVAH.</p>
+      </section>
+    </form>
+    <!-- etapa 2: aguardando Pix / boleto -->
+    <section class="card hide" id="vPix">
+      <h2>Pague com Pix para liberar o acesso</h2><p class="sub">Abra o app do seu banco, escolha <b>Pix › Ler QR Code</b> ou use o código copia e cola.</p>
+      <div class="pixw"><div class="qr" id="qr"></div>
+        <div style="flex:1 1 260px;min-width:0"><div class="timer">Expira em <b id="tm">30:00</b></div>
+          <div class="cc"><input id="ccode" readonly><button type="button" id="copiar">Copiar</button></div>
+          <div class="wait"><span class="spin"></span>Aguardando a confirmação do pagamento…</div>
+          <button type="button" class="btn2 out hide" id="simular" style="margin-top:14px">Simular pagamento confirmado (demonstração)</button></div></div>
+    </section>
+    <section class="card hide" id="vBoleto">
+      <h2>Boleto gerado</h2><p class="sub">Pague até o vencimento. Assim que o banco confirmar, você recebe o acesso por e-mail.</p>
+      <div class="cc"><input id="blinha" readonly><button type="button" id="copiarB">Copiar</button></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn2" id="bLink" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;text-decoration:none">Abrir boleto</a><button type="button" class="btn2 out hide" id="simularB">Simular pagamento confirmado (demonstração)</button></div>
+      <div class="wait"><span class="spin"></span>Aguardando a compensação…</div>
+    </section>
+    <!-- etapa 3: sucesso -->
+    <section class="card hide" id="vOk">
+      <div class="ok-h"><div class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h2>Pagamento confirmado!</h2><p>Seu acesso ao <b>AZOVAH Numerologia</b> está liberado. Enviamos o login e a senha provisória para <b id="okMail"></b>.</p></div>
+      <div class="passos"><div class="ps"><b>1</b><h4>Abra o seu e-mail</h4><p>Procure “Seu acesso ao AZOVAH”. Se não achar, olhe no spam ou promoções.</p></div><div class="ps"><b>2</b><h4>Entre com a senha provisória</h4><p>Login: o seu e-mail. Senha: a que veio no e-mail.</p></div><div class="ps"><b>3</b><h4>Crie a sua senha</h4><p>No primeiro acesso o sistema pede a sua senha definitiva.</p></div></div>
+      <a class="pay" id="irApp" style="text-decoration:none" target="_blank" rel="noopener">Acessar o AZOVAH agora</a>
+      <div id="mailDemo" class="hide" style="margin-top:22px"><p class="sub" style="margin:0 0 8px"><b>Prévia do e-mail que o cliente recebe</b> (modo demonstração):</p><div class="mailp"><div class="mh"><span>De: AZOVAH Numerologia &lt;acesso@azovah.com.br&gt;</span><span>Assunto: Seu acesso ao AZOVAH Numerologia está liberado</span></div><iframe id="mailF" title="Prévia do e-mail"></iframe></div></div>
+    </section>
+  </main>
+
+  <aside class="side">
+    <section class="card sum">
+      <h3>Resumo do pedido</h3>
+      <div class="row"><span>AZOVAH Numerologia</span><b id="sPlano">Anual</b></div>
+      <div class="row"><span>Período</span><span id="sPer">12 meses</span></div>
+      <div class="row"><span>Equivale a</span><span id="sMes">R$ 62,00/mês</span></div>
+      <div class="row t"><span>Total</span><span><span id="sTot">R$ 744,00</span><small id="sParc">em até 12x</small></span></div>
+      <div class="eco" id="sEco">Você economiza R$ 432,00 por ano</div>
+      <ul><li>Mapas ilimitados e PDFs sem limite</li><li>Todos os 12 módulos liberados</li><li>Pessoal, empresa, endereço, placa e telefone</li><li>Monte sua assinatura e Terapêutico</li><li>Sistema em 7 idiomas</li><li>Atualizações e suporte incluídos</li></ul>
+      <div class="trust">
+        <div><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>Ambiente protegido com criptografia</div>
+        <div><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Acesso liberado automaticamente após o pagamento</div>
+        <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Login e senha enviados para o seu e-mail</div>
+      </div>
+    </section>
+  </aside>
+</div>
+<div class="toast" id="toast"></div>
+<canvas class="conf" id="conf"></canvas>
+
+<script>
+// ===================== CONFIGURAÇÃO =====================
+// Quando o servidor (azovah-api) estiver no ar, preencha "api" com o endereço dele, ex.: https://api.azovah.com.br
+// gateway: "demo" | "mercadopago" | "asaas"   ·   mpPublicKey: chave pública do Mercado Pago (para os campos seguros do cartão)
+const CONFIG = { api: '', gateway: 'demo', mpPublicKey: '', appUrl: 'https://claude.ai/artifact/J3NnbEYq72nfPMbNUuZwGD' };
+// ========================================================
+const PLANOS = {
+  mensal:    { nome: 'Mensal',    meses: 1,  total: 9800,  mes: 9800, parcelas: 1,  metodos: ['cartao','pix'],          nota: 'Cobrado todo mês', tag: '' },
+  anual:     { nome: 'Anual',     meses: 12, total: 74400, mes: 6200, parcelas: 12, metodos: ['cartao','pix','boleto'], nota: 'Até 12x no cartão', tag: 'MELHOR VALOR · 37% OFF' },
+  semestral: { nome: 'Semestral', meses: 6,  total: 48000, mes: 8000, parcelas: 6,  metodos: ['cartao','pix','boleto'], nota: 'Até 6x no cartão', tag: '18% OFF' },
+};
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const brl = c => (c / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+const DEMO = !CONFIG.api;
+const q = new URLSearchParams(location.search);
+let st = { plano: PLANOS[q.get('plano')] ? q.get('plano') : 'anual', metodo: 'cartao', pedido: null };
+const MAIL_TPL = __MAIL__;
+
+function toast(t) { const e = $('#toast'); e.textContent = t; e.classList.add('on'); clearTimeout(e._t); e._t = setTimeout(() => e.classList.remove('on'), 2200); }
+function passo(n) { $$('.st').forEach(e => { const s = +e.dataset.s; e.classList.toggle('on', s === n); e.classList.toggle('ok', s < n); }); scrollTo({ top: 0, behavior: 'smooth' }); }
+
+// ---------- planos ----------
+function desenharPlanos() {
+  $('#planos').innerHTML = Object.entries(PLANOS).map(([k, p]) => `<button type="button" class="pl${st.plano === k ? ' on' : ''}" data-p="${k}">${p.tag ? `<span class="tag${k === 'semestral' ? ' l' : ''}">${p.tag}</span>` : ''}<span class="rd"></span><h3>${p.nome}</h3><div class="pr">${brl(p.mes)}<small>/mês</small></div><p>${p.meses > 1 ? brl(p.total) + ' · ' : ''}${p.nota}</p></button>`).join('');
+  $$('.pl').forEach(b => b.onclick = () => { st.plano = b.dataset.p; if (!PLANOS[st.plano].metodos.includes(st.metodo)) st.metodo = 'cartao'; atualizar(); history.replaceState(null, '', '?plano=' + st.plano); });
+}
+function atualizar() {
+  desenharPlanos();
+  const p = PLANOS[st.plano];
+  $('#sPlano').textContent = p.nome; $('#sPer').textContent = p.meses === 1 ? '1 mês (renovação mensal)' : p.meses + ' meses';
+  $('#sMes').textContent = brl(p.mes) + '/mês'; $('#sTot').textContent = brl(p.total);
+  $('#sParc').textContent = st.metodo === 'cartao' && p.parcelas > 1 ? `ou ${p.parcelas}x de ${brl(Math.round(p.total / p.parcelas))} sem juros` : st.metodo === 'pix' ? 'no Pix' : st.metodo === 'boleto' ? 'no boleto' : 'por mês';
+  const eco = 9800 * p.meses - p.total; $('#sEco').classList.toggle('hide', eco <= 0); $('#sEco').textContent = `Você economiza ${brl(eco)} ${p.meses === 12 ? 'por ano' : 'no semestre'}`;
+  $$('.tb').forEach(b => { b.classList.toggle('on', b.dataset.m === st.metodo); b.disabled = !p.metodos.includes(b.dataset.m); b.title = b.disabled ? 'Indisponível no plano ' + p.nome : ''; });
+  $('#pgCartao').classList.toggle('hide', st.metodo !== 'cartao'); $('#pgPix').classList.toggle('hide', st.metodo !== 'pix'); $('#pgBoleto').classList.toggle('hide', st.metodo !== 'boleto');
+  $('#parc').innerHTML = Array.from({ length: p.parcelas }, (_, i) => `<option value="${i + 1}">${i + 1}x de ${brl(Math.round(p.total / (i + 1)))}${i ? ' sem juros' : ' à vista'}</option>`).join('');
+  $('#parc').value = String(p.parcelas);
+  $('#payTx').textContent = st.metodo === 'pix' ? `Gerar Pix de ${brl(p.total)}` : st.metodo === 'boleto' ? `Gerar boleto de ${brl(p.total)}` : `Pagar ${brl(p.total)}`;
+}
+$$('.tb').forEach(b => b.onclick = () => { if (b.disabled) return; st.metodo = b.dataset.m; atualizar(); });
+
+// ---------- máscaras e validação ----------
+const so = v => v.replace(/\D/g, '');
+const mask = (el, f) => el.addEventListener('input', () => { const p = el.selectionStart, a = el.value.length; el.value = f(el.value); const d = el.value.length - a; try { el.setSelectionRange(p + d, p + d); } catch (e) {} });
+mask($('#cpf'), v => so(v).slice(0, 11).replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2'));
+mask($('#zap'), v => { v = so(v).slice(0, 11); return v.length > 10 ? v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3') : v.replace(/(\d{2})(\d{0,4})(\d{0,4})/, (m, a, b, c) => `(${a}) ${b}${c ? '-' + c : ''}`).replace(/[-\s()]+$/, ''); });
+mask($('#cn'), v => so(v).slice(0, 16).replace(/(\d{4})(?=\d)/g, '$1 '));
+mask($('#cv'), v => so(v).slice(0, 4).replace(/(\d{2})(\d)/, '$1/$2'));
+mask($('#cc'), v => so(v).slice(0, 4));
+const BAND = n => /^4/.test(n) ? 'VISA' : /^(5[1-5]|2[2-7])/.test(n) ? 'MASTERCARD' : /^3[47]/.test(n) ? 'AMEX' : /^(4011|4312|4389|4514|4576|5041|5066|5067|509|6277|6362|6363|650|6516|6550)/.test(n) ? 'ELO' : /^(606282|3841)/.test(n) ? 'HIPERCARD' : 'AZOVAH';
+$('#cn').addEventListener('input', () => { const n = so($('#cn').value); $('#ccNum').textContent = (n + '•'.repeat(16 - n.length)).replace(/(.{4})/g, '$1 ').trim(); $('#ccBr').textContent = BAND(n); });
+$('#cnm').addEventListener('input', () => $('#ccNome').textContent = $('#cnm').value.toUpperCase() || 'NOME NO CARTÃO');
+$('#cv').addEventListener('input', () => $('#ccVal').textContent = $('#cv').value || 'MM/AA');
+function cpfOk(c) { c = so(c); if (c.length !== 11 || /^(\d)\1+$/.test(c)) return false; const dv = n => { let s = 0; for (let i = 0; i < n; i++) s += +c[i] * (n + 1 - i); const r = (s * 10) % 11; return r === 10 ? 0 : r; }; return dv(9) === +c[9] && dv(10) === +c[10]; }
+const luhn = n => { let s = 0, d = false; for (let i = n.length - 1; i >= 0; i--) { let x = +n[i]; if (d) { x *= 2; if (x > 9) x -= 9; } s += x; d = !d; } return n.length >= 13 && s % 10 === 0; };
+function erroCampo(id, msg) { const f = $('#' + id).closest('.f'); f.classList.toggle('err', !!msg); f.querySelector('.e').textContent = msg || ''; return !msg; }
+function validar() {
+  let ok = true; const v = id => $('#' + id).value.trim();
+  ok &= erroCampo('nome', v('nome').split(/\s+/).length < 2 ? 'Informe nome e sobrenome.' : '');
+  ok &= erroCampo('email', /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email')) ? '' : 'E-mail inválido.');
+  ok &= erroCampo('email2', v('email2').toLowerCase() === v('email').toLowerCase() ? '' : 'Os e-mails não conferem.');
+  ok &= erroCampo('cpf', cpfOk(v('cpf')) ? '' : 'CPF inválido.');
+  ok &= erroCampo('zap', so(v('zap')).length >= 10 ? '' : 'Informe o WhatsApp com DDD.');
+  if (st.metodo === 'cartao' && !(CONFIG.gateway === 'mercadopago' && !DEMO)) {
+    ok &= erroCampo('cn', luhn(so(v('cn'))) ? '' : 'Número do cartão inválido.');
+    ok &= erroCampo('cnm', v('cnm').length > 3 ? '' : 'Informe o nome do cartão.');
+    const [m, a] = v('cv').split('/').map(Number), venc = new Date(2000 + a, m, 1);
+    ok &= erroCampo('cv', m >= 1 && m <= 12 && venc > new Date() ? '' : 'Validade inválida.');
+    ok &= erroCampo('cc', /^\d{3,4}$/.test(v('cc')) ? '' : 'CVV inválido.');
+  }
+  return !!ok;
+}
+
+// ---------- pagamento ----------
+async function api(caminho, corpo) {
+  const r = await fetch(CONFIG.api.replace(/\/$/, '') + caminho, corpo ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(corpo) } : {});
+  const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.erro || 'Falha na comunicação.'); return j;
+}
+// Tokenização do cartão pelo gateway (produção). No demo, nada sai da página.
+async function tokenizarCartao() {
+  if (DEMO) return { token: null, bandeira: BAND(so($('#cn').value)).toLowerCase() };
+  if (CONFIG.gateway === 'mercadopago' && window.__mpCardForm) { const d = window.__mpCardForm.getCardFormData(); return { token: d.token, bandeira: d.paymentMethodId }; }
+  throw new Error('Gateway de cartão ainda não configurado.');
+}
+$('#fm').onsubmit = async e => {
+  e.preventDefault(); $('#erro').classList.add('hide');
+  if (!validar()) { const f = $('.f.err input'); if (f) f.focus(); toast('Confira os campos destacados'); return; }
+  const b = $('#pay'); b.disabled = true; $('#payTx').textContent = 'Processando…';
+  const dados = { plano: st.plano, nome: $('#nome').value.trim(), email: $('#email').value.trim().toLowerCase(), cpf: so($('#cpf').value), whatsapp: so($('#zap').value), metodo: st.metodo, parcelas: +$('#parc').value || 1 };
+  try {
+    let r;
+    if (DEMO) { await new Promise(z => setTimeout(z, 1300)); r = { pedido: 'demo_' + Date.now().toString(36), status: st.metodo === 'cartao' ? 'pago' : 'pendente', pix: st.metodo === 'pix' ? { copiaCola: '00020126580014BR.GOV.BCB.PIX0136DEMONSTRACAO-AZOVAH5204000053039865406' + (PLANOS[st.plano].total / 100).toFixed(2) + '5802BR6304DEMO' } : null, boleto: st.metodo === 'boleto' ? { linha: '23793.38128 60000.000003 00000.000400 1 ' + String(PLANOS[st.plano].total).padStart(14, '0'), url: null } : null, demo: true }; }
+    else { if (st.metodo === 'cartao') { const t = await tokenizarCartao(); dados.cardToken = t.token; dados.cardBandeira = t.bandeira; } r = await api('/api/pedidos', dados); }
+    st.pedido = { ...r, ...dados };
+    if (r.status === 'pago') return sucesso();
+    if (r.status === 'recusado') throw new Error('Pagamento recusado pelo emissor do cartão. Tente outro cartão ou o Pix.');
+    if (st.metodo === 'pix') mostrarPix(r.pix); else mostrarBoleto(r.boleto);
+  } catch (er) { $('#erro').textContent = er.message || String(er); $('#erro').classList.remove('hide'); }
+  finally { b.disabled = false; atualizar(); }
+};
+
+// QR de demonstração (desenho ilustrativo) ou imagem real do gateway
+function qrDemo(txt) {
+  let h = 2166136261; const rnd = () => { h ^= h << 13; h ^= h >>> 17; h ^= h << 5; return (h >>> 0) / 4294967296; };
+  for (const c of txt) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  const N = 29; let r = ''; const fin = (x, y) => `<rect x="${x}" y="${y}" width="7" height="7" fill="#2a1a24"/><rect x="${x + 1}" y="${y + 1}" width="5" height="5" fill="#fff"/><rect x="${x + 2}" y="${y + 2}" width="3" height="3" fill="#2a1a24"/>`;
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { const f = (x < 8 && y < 8) || (x > N - 9 && y < 8) || (x < 8 && y > N - 9); if (!f && rnd() > .52) r += `<rect x="${x}" y="${y}" width="1" height="1"/>`; }
+  return `<svg viewBox="0 0 ${N} ${N}" shape-rendering="crispEdges"><g fill="#2a1a24">${r}</g>${fin(0, 0)}${fin(N - 7, 0)}${fin(0, N - 7)}</svg><span class="lb">DEMO</span>`;
+}
+let poll = null, tmr = null;
+function mostrarPix(pix) {
+  $('#fm').classList.add('hide'); $('#vPix').classList.remove('hide'); passo(2);
+  $('#qr').innerHTML = pix.imagem ? `<img src="${pix.imagem}" alt="QR Code Pix">` : qrDemo(pix.copiaCola);
+  $('#ccode').value = pix.copiaCola; $('#simular').classList.toggle('hide', !st.pedido.demo);
+  let s = 30 * 60; clearInterval(tmr); tmr = setInterval(() => { s--; $('#tm').textContent = `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; if (s <= 0) { clearInterval(tmr); clearInterval(poll); $('#tm').textContent = 'expirado'; } }, 1000);
+  esperar();
+}
+function mostrarBoleto(bo) {
+  $('#fm').classList.add('hide'); $('#vBoleto').classList.remove('hide'); passo(2);
+  $('#blinha').value = bo.linha || 'Use o botão "Abrir boleto"'; $('#bLink').classList.toggle('hide', !bo.url); if (bo.url) $('#bLink').href = bo.url;
+  $('#simularB').classList.toggle('hide', !st.pedido.demo); esperar();
+}
+function esperar() {
+  clearInterval(poll); if (DEMO) return;
+  poll = setInterval(async () => { try { const r = await api('/api/pedidos/' + st.pedido.pedido); if (r.status === 'pago') { clearInterval(poll); sucesso(); } } catch (e) {} }, 4000);
+}
+const copiar = id => { const el = $(id); el.select(); (navigator.clipboard ? navigator.clipboard.writeText(el.value) : Promise.reject()).then(() => toast('Código copiado!'), () => { document.execCommand && document.execCommand('copy'); toast('Código copiado!'); }); };
+$('#copiar').onclick = () => copiar('#ccode'); $('#copiarB').onclick = () => copiar('#blinha');
+$('#simular').onclick = $('#simularB').onclick = () => sucesso();
+
+function senhaDemo() { const A = 'ABCDEFGHJKMNPQRSTUVWXYZ', a = 'abcdefghjkmnpqrstuvwxyz', n = '23456789', p = s => s[Math.floor(Math.random() * s.length)]; return p(A) + p(a) + p(a) + p(a) + '-' + p(n) + p(n) + p(n) + p(n) + p(A) + p(a); }
+function sucesso() {
+  clearInterval(poll); clearInterval(tmr);
+  ['#fm', '#vPix', '#vBoleto'].forEach(s => $(s).classList.add('hide')); $('#vOk').classList.remove('hide'); passo(3);
+  $('#okMail').textContent = st.pedido.email; $('#irApp').href = CONFIG.appUrl;
+  if (st.pedido.demo) {
+    const p = PLANOS[st.plano], v = new Date(); v.setMonth(v.getMonth() + p.meses);
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const d = { nome: st.pedido.nome.split(' ')[0], email: st.pedido.email, senha: senhaDemo(), plano: p.nome, vence: v.toLocaleDateString('pt-BR'), link: CONFIG.appUrl, suporte: 'suporte@azovah.com.br' };
+    $('#mailF').srcdoc = MAIL_TPL.replace(/\{\{(\w+)\}\}/g, (_, k) => esc(d[k] ?? '')); $('#mailDemo').classList.remove('hide');
+  }
+  confete();
+}
+function confete() {
+  const c = $('#conf'), x = c.getContext('2d'); c.width = innerWidth; c.height = innerHeight;
+  const cores = ['#d6336c', '#9c1650', '#f0b400', '#19a77a', '#ffc2d8'], P = Array.from({ length: 140 }, () => ({ x: innerWidth / 2, y: innerHeight / 3, vx: (Math.random() - .5) * 14, vy: Math.random() * -12 - 4, s: 4 + Math.random() * 6, c: cores[Math.floor(Math.random() * 5)], r: Math.random() * 6 }));
+  let t = 0; (function f() { x.clearRect(0, 0, c.width, c.height); P.forEach(p => { p.vy += .35; p.x += p.vx; p.y += p.vy; p.r += .2; x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.fillStyle = p.c; x.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2); x.restore(); }); if (++t < 150) requestAnimationFrame(f); else x.clearRect(0, 0, c.width, c.height); })();
+}
+
+// Mercado Pago: monta os campos seguros do cartão (quando configurado)
+if (!DEMO && CONFIG.gateway === 'mercadopago' && CONFIG.mpPublicKey) {
+  const s = document.createElement('script'); s.src = 'https://sdk.mercadopago.com/js/v2';
+  s.onload = () => { /* Monte aqui o CardForm do SDK v2 apontando para #gwCard (ver README da API). */ };
+  document.head.appendChild(s);
+  $('#gwTxt').textContent = 'Campos protegidos pelo Mercado Pago: o número do cartão é criptografado no seu navegador e nunca chega ao AZOVAH.';
+}
+if (DEMO) $('#demoBox').classList.remove('hide');
+atualizar();
+</script>
+</body>
+</html>
