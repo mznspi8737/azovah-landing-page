@@ -22,6 +22,7 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
 body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--ivory);-webkit-font-smoothing:antialiased;overflow-x:clip}
 img,video,svg{display:block;max-width:100%}
+img{height:auto}
 a{color:inherit}
 button{font:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--pk2);outline-offset:3px;border-radius:8px}
@@ -125,19 +126,18 @@ h2{font:700 clamp(30px,4.2vw,50px)/1.08 var(--serif)}
 .calc .err{margin:8px 0 0;color:#ffc2d4;font:600 13px var(--sans);min-height:0}
 
 /* código de barras vertical */
-.barcode{position:absolute;right:22px;top:132px;bottom:120px;width:64px;display:flex;gap:10px;align-items:stretch;pointer-events:none;opacity:.85}
-.barcode svg{height:100%;width:34px}
-.barcode .bt{writing-mode:vertical-rl;transform:rotate(180deg);font:700 10.5px var(--mono);letter-spacing:.32em;color:rgba(255,255,255,.55);display:flex;justify-content:space-between;white-space:nowrap}
+.barcode{position:absolute;right:26px;top:150px;height:170px;display:flex;gap:6px;align-items:stretch;pointer-events:none;opacity:.42;transition:opacity .3s}
+.barcode svg{height:100%;width:12px}
+.barcode .bt{writing-mode:vertical-rl;transform:rotate(180deg);font:600 8.5px var(--mono);letter-spacing:.22em;color:rgba(255,255,255,.7);white-space:nowrap}
 .barcode .bt b{color:var(--pk2);font-weight:700}
-
 /* device */
 .device{position:relative;margin:70px auto 0;width:min(1080px,100%);perspective:1600px}
-.screen{position:relative;border-radius:18px 18px 0 0;padding:12px 12px 0;background:linear-gradient(180deg,#3b1525,#1d0912);box-shadow:0 -30px 80px -30px rgba(255,143,182,.35),inset 0 0 0 1px rgba(255,255,255,.12);transform:rotateX(var(--rx,8deg)) rotateY(var(--ry,0deg));transform-origin:50% 100%;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.screen{position:relative;border-radius:18px 18px 0 0;padding:12px 12px 0;background:linear-gradient(180deg,#3b1525,#1d0912);box-shadow:0 -30px 80px -30px rgba(255,143,182,.35),inset 0 0 0 1px rgba(255,255,255,.12);transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transform-origin:50% 100%;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .screen .bar{display:flex;align-items:center;gap:6px;padding:4px 6px 10px}.screen .bar i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.screen .bar i:nth-child(2){background:#febc2e}.screen .bar i:nth-child(3){background:#28c840}
 .screen .bar span{margin-left:12px;padding:4px 12px;border-radius:8px;background:rgba(255,255,255,.07);font:500 12px var(--mono);color:rgba(255,255,255,.55)}
 .screen img{border-radius:10px 10px 0 0;width:100%;height:auto}
 .phone{position:absolute;right:-10px;bottom:-40px;width:23%;min-width:150px;padding:9px;border-radius:38px;background:#140409;box-shadow:0 40px 60px -20px rgba(0,0,0,.7),inset 0 0 0 1.5px rgba(255,255,255,.14);animation:float 7s ease-in-out infinite}
-.phone img{border-radius:30px}
+.phone img{border-radius:30px;width:100%;height:auto;aspect-ratio:390/844;object-fit:cover}
 .fl{position:absolute;z-index:3;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.95);color:var(--ink);box-shadow:0 24px 40px -20px rgba(0,0,0,.6);display:flex;align-items:center;gap:10px;font:600 13px var(--sans);animation:float 8s ease-in-out infinite}
 .fl b{display:block;font:800 17px var(--sans)}
 .fl small{display:block;color:var(--mute);font-size:11.5px}
@@ -461,7 +461,7 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:#
   <div class="orb" style="width:6px;height:6px;left:46%;top:18%;animation-delay:-4s" aria-hidden="true"></div>
   <div class="orb" style="width:8px;height:8px;left:58%;top:62%;animation-delay:-2s" aria-hidden="true"></div>
 
-  <div class="barcode" aria-hidden="true"><svg id="bc" viewBox="0 0 34 600" preserveAspectRatio="none"></svg><div class="bt"><span>AZOVAH · NUMEROLOGIA CABALÍSTICA</span><span id="bcd"><b>Nº</b> 11 · 22 · 33</span></div></div>
+  <div class="barcode" aria-hidden="true"><svg id="bc" viewBox="0 0 34 600" preserveAspectRatio="none"></svg><div class="bt"><span id="bcd">AZOVAH</span></div></div>
 
   <div class="wrap">
     <div class="live" aria-label="Agora">
@@ -514,7 +514,7 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:#
       <div class="fl c"><span><small>Matriz</small><span class="dots"><i style="background:#8fd0b4"></i><i style="background:#8fd0b4"></i><i style="background:#e8c766"></i><i style="background:#8fd0b4"></i></span></span><b>★</b></div>
       <div class="fl b"><span class="n" style="background:linear-gradient(135deg,#e8b04a,#a86d08)">5</span><span><small>Opções exatas</small><b>Monte sua assinatura</b></span></div>
       <div class="screen" id="scr"><div class="bar"><i></i><i></i><i></i><span>azovah.app · Central de Controle</span></div><img src="assets/shot_inicio_d.webp" alt="Central de Controle do AZOVAH no computador" width="1440" height="900" fetchpriority="high"></div>
-      <div class="phone"><img src="assets/shot_inicio_m.webp" alt="AZOVAH no celular" width="390" height="844"></div>
+      <div class="phone"><img src="assets/shot_inicio_m.webp" alt="AZOVAH no celular" width="780" height="1688"></div>
     </div>
   </div>
 </section>
@@ -738,7 +738,7 @@ function tick(){const d=new Date(),p=n=>String(n).padStart(2,'0');
   const h=d.getHours();$('#greet').textContent=h<5?'Boa noite':h<12?'Bom dia':h<18?'Boa tarde':'Boa noite';
   $('#dt').textContent=`${DIAS[d.getDay()]}, ${d.getDate()} ${MES[d.getMonth()]}`;
   const du=red9(`${d.getDate()}${d.getMonth()+1}${d.getFullYear()}`.split('').reduce((a,b)=>a+ +b,0));$('#du').textContent=du;
-  $('#bcd').innerHTML=`<b>${p(d.getDate())}.${p(d.getMonth()+1)}.${d.getFullYear()}</b> → ${du}`;}
+  $('#bcd').innerHTML=`AZOVAH · <b>${p(d.getDate())}.${p(d.getMonth()+1)}.${d.getFullYear()}</b> · ${du}`;}
 tick();setInterval(tick,1000);$('#yr').textContent=new Date().getFullYear();
 
 /* ---------- código de barras vertical (gerado da marca) ---------- */
@@ -890,7 +890,7 @@ const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)retur
 $$('[data-n]').forEach(el=>cio.observe(el));
 document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}},{passive:true});
 const hero=$('#hero'),spot=$('#spot'),scr=$('#scr');
-hero.addEventListener('pointermove',e=>{if(RM)return;const r=hero.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;spot.style.setProperty('--sx',px*100+'%');spot.style.setProperty('--sy',py*100+'%');scr.style.setProperty('--ry',((px-.5)*6).toFixed(2)+'deg');scr.style.setProperty('--rx',(8-(py-.5)*6).toFixed(2)+'deg')},{passive:true});
+hero.addEventListener('pointermove',e=>{if(RM)return;const r=hero.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;spot.style.setProperty('--sx',px*100+'%');spot.style.setProperty('--sy',py*100+'%');scr.style.setProperty('--ry',((px-.5)*3).toFixed(2)+'deg');scr.style.setProperty('--rx',(-(py-.5)*2).toFixed(2)+'deg')},{passive:true});
 $$('.mag').forEach(b=>{b.addEventListener('pointermove',e=>{if(RM||e.pointerType!=='mouse')return;const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.2}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
 const nav=$('#nav'),prog=$('#prog'),top=$('#toTop'),ring=$('#topRing'),mbar=$('#mbar'),secs=['modulos','numeros','tour','planos','faq'].map(id=>document.getElementById(id));
 function onScroll(){const y=scrollY,h=document.documentElement.scrollHeight-innerHeight,p=h>0?y/h:0;prog.style.width=(p*100)+'%';nav.classList.toggle('solid',y>30);top.classList.toggle('show',y>900);ring.style.strokeDashoffset=132*(1-p);
