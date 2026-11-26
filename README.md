@@ -61,3 +61,12 @@ Código proprietário. Todos os direitos reservados.
 - 17 módulos com filtro, Monte sua assinatura com opções reais, Matriz, depoimentos ilustrativos, planos com seletor, garantia de 7 dias (CDC), FAQ, botão de WhatsApp, barra fixa no celular e voltar ao topo.
 
 `Main.dc.html` continua sendo a versão anterior, do editor de design.
+
+## Blink e máscaras de link (26/11/2026)
+
+- `blink/` é a página de links do Instagram. Publique o conteúdo em **azovah.com/links/** (rode `python3 blink/build.py` antes, se mudar `src.html`).
+- Máscaras curtas que levam para os links: **azovah.com/bio** e **azovah.com/ig**.
+  - nginx: `deploy/nginx-azovah.conf`
+  - Apache/hospedagem comum: `deploy/.htaccess` na raiz do site
+  - Sem acesso à configuração do servidor: copie `deploy/bio/` para a raiz (vira azovah.com/bio, que redireciona).
+- Landing page: conteúdo de `site/` em **azovah.com/lp/**.

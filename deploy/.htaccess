@@ -1,0 +1,7 @@
+# Para hospedagem Apache (ex.: Hostinger, Locaweb, HostGator), na raiz de azovah.com
+# Coloque o conteúdo de site/ em /lp e o de blink/ em /links
+RewriteEngine On
+RewriteRule ^bio/?$ /links/ [R=301,L]
+RewriteRule ^ig/?$ /links/ [R=301,L]
+RewriteRule ^links$ /links/ [R=301,L]
+RewriteRule ^lp$ /lp/ [R=301,L]
