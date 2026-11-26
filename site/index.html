@@ -1,0 +1,906 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AZOVAH · Numerologia cabalística e arcanos</title>
+<meta name="description" content="O sistema mais completo de numerologia cabalística e arcanos: mapa, triângulo da vida, matriz de arcanos, assinatura ideal, Mentor, calendário favorável e estudo em PDF. Em 7 idiomas.">
+<meta name="theme-color" content="#3a0716">
+<meta property="og:title" content="AZOVAH · Numerologia cabalística e arcanos">
+<meta property="og:description" content="Mapa, triângulo da vida, matriz de arcanos e assinatura ideal, número por número.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wine:#7a1028;--wine2:#5a0c22;--deep:#26040f;--ink:#1d1117;--mute:#6f5c65;--line:#efe2e8;
+  --pk:#e0457f;--pk2:#ff8fb6;--gold:#e8b04a;--ivory:#fffaf7;--ok:#1f9a62;--warn:#e0a11a;--bad:#d2372d;
+  --r:22px;--shadow:0 30px 60px -34px rgba(58,7,22,.45);
+  --serif:Lora,Georgia,serif;--sans:Inter,system-ui,-apple-system,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--ivory);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--pk2);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font:800 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--wine)}
+.eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor;opacity:.6}
+h1,h2,h3{margin:0;letter-spacing:-.01em}
+h2{font:700 clamp(30px,4.2vw,50px)/1.08 var(--serif)}
+.lead{font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:var(--mute);margin:14px 0 0;max-width:680px}
+.sec{padding:clamp(80px,10vw,130px) 0;position:relative}
+.sec-h{display:flex;flex-direction:column;gap:12px;margin-bottom:46px}
+.sec-h.c{align-items:center;text-align:center}.sec-h.c .lead{margin-inline:auto}
+
+/* botões */
+.btn{--b:linear-gradient(135deg,#f06a9b,#c2185b 55%,#8e1248);position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border:0;border-radius:16px;background:var(--b);color:#fff;font:800 16px var(--sans);text-decoration:none;box-shadow:0 18px 34px -16px rgba(194,24,91,.8),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s;overflow:hidden;isolation:isolate}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s;z-index:-1}
+.btn:hover{transform:translateY(-2px);box-shadow:0 24px 40px -16px rgba(194,24,91,.9),inset 0 1px 0 rgba(255,255,255,.35)}.btn:hover::after{transform:translateX(120%)}
+.btn:active{transform:translateY(0) scale(.97)}
+.btn svg{width:18px;height:18px;transition:transform .2s}.btn:hover svg{transform:translateX(3px)}
+.btn.ghost{background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28);backdrop-filter:blur(10px)}
+.btn.ghost:hover{background:rgba(255,255,255,.14)}
+.btn.light{background:#fff;color:var(--wine);box-shadow:0 18px 34px -18px rgba(0,0,0,.5)}
+.btn.line{background:#fff;color:var(--wine);box-shadow:inset 0 0 0 1.5px #e7c6d4}
+.btn.line:hover{box-shadow:inset 0 0 0 1.5px var(--pk)}
+
+/* progresso e nav */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;background:linear-gradient(90deg,var(--gold),var(--pk2),var(--pk));box-shadow:0 0 12px var(--pk)}
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:90;width:min(1240px,100% - 24px);display:flex;align-items:center;gap:18px;padding:10px 12px 10px 20px;border-radius:20px;transition:background .3s,box-shadow .3s,top .3s,padding .3s}
+.nav.solid{top:8px;background:rgba(38,4,15,.72);backdrop-filter:blur(18px) saturate(1.4);box-shadow:0 20px 40px -24px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.1)}
+.nav img{height:42px;width:auto}
+.nav nav{display:flex;gap:4px;margin-left:auto}
+.nav nav a{position:relative;padding:9px 13px;border-radius:11px;color:rgba(255,255,255,.82);text-decoration:none;font:600 14.5px var(--sans);transition:color .2s,background .2s}
+.nav nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav nav a.on{color:#fff}.nav nav a.on::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;border-radius:2px;background:var(--pk2)}
+.nav .in{color:#fff;text-decoration:none;font:700 14.5px var(--sans);padding:9px 14px;border-radius:12px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.25)}
+.nav .in:hover{background:rgba(255,255,255,.1)}
+.nav .btn{min-height:44px;padding:0 18px;font-size:14.5px;border-radius:13px}
+.burger{display:none;margin-left:auto;width:44px;height:44px;border-radius:12px;border:0;background:rgba(255,255,255,.1);color:#fff;place-items:center}
+.burger svg{width:22px;height:22px}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;padding:118px 0 0;color:#fff;overflow:hidden;isolation:isolate;
+  background:radial-gradient(1200px 700px at 12% -10%,#b21a4a 0%,transparent 60%),radial-gradient(900px 600px at 100% 30%,#5b0d3a 0%,transparent 60%),radial-gradient(800px 600px at 40% 120%,#e0457f40 0%,transparent 60%),linear-gradient(170deg,#6b0d26 0%,#3a0716 55%,#1b030b 100%)}
+.hero::before{content:"";position:absolute;inset:-20%;z-index:-2;background:conic-gradient(from 210deg at 70% 30%,transparent 0deg,rgba(255,143,182,.22) 40deg,transparent 80deg,rgba(232,176,74,.12) 140deg,transparent 190deg);filter:blur(40px);animation:beam 18s linear infinite}
+@keyframes beam{to{transform:rotate(360deg)}}
+.hero .grain{position:absolute;inset:0;z-index:-1;opacity:.16;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero .net{position:absolute;inset:0;z-index:-1;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23fff' stroke-width='.6'%3E%3Cpath d='M18 30L74 62L132 26L190 70M74 62L60 128L120 150L132 26M120 150L186 132L190 70M60 128L22 182L96 204L120 150M186 132L168 196L96 204'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Ccircle cx='18' cy='30' r='1.6'/%3E%3Ccircle cx='74' cy='62' r='2.2'/%3E%3Ccircle cx='132' cy='26' r='1.6'/%3E%3Ccircle cx='190' cy='70' r='2'/%3E%3Ccircle cx='60' cy='128' r='1.8'/%3E%3Ccircle cx='120' cy='150' r='2.4'/%3E%3Ccircle cx='186' cy='132' r='1.6'/%3E%3Ccircle cx='22' cy='182' r='1.6'/%3E%3Ccircle cx='96' cy='204' r='2'/%3E%3Ccircle cx='168' cy='196' r='1.6'/%3E%3C/g%3E%3C/svg%3E");-webkit-mask-image:radial-gradient(ellipse at 60% 30%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse at 60% 30%,#000 0%,transparent 75%)}
+.hero .spot{position:absolute;z-index:-1;width:620px;height:620px;border-radius:50%;left:var(--sx,60%);top:var(--sy,30%);transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(255,143,182,.22),transparent 65%);pointer-events:none;transition:left .6s cubic-bezier(.2,.8,.2,1),top .6s cubic-bezier(.2,.8,.2,1)}
+.orb{position:absolute;z-index:-1;border-radius:50%;filter:blur(2px);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.9),rgba(255,143,182,.4) 30%,transparent 70%);animation:float 9s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-22px)}}
+
+/* barra viva: hora, dia universal, clima */
+.live{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chip{display:inline-flex;align-items:center;gap:9px;min-height:40px;padding:6px 14px 6px 8px;border-radius:999px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);backdrop-filter:blur(12px);font:600 13.5px var(--sans);color:rgba(255,255,255,.9);white-space:nowrap}
+.chip i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.12);font-style:normal}
+.chip i svg{width:15px;height:15px}
+.chip b{color:#fff;font-weight:800}
+.chip .clock{font:700 15px var(--mono);letter-spacing:.02em;color:#fff;font-variant-numeric:tabular-nums}
+.chip .sec{opacity:.55}
+.wxw{position:relative;display:inline-flex}.wxw[hidden]{display:none}.chip.wx{cursor:pointer;border:0}
+.chip.wx:hover{background:rgba(255,255,255,.14)}
+.wxpop{position:absolute;top:calc(100% + 10px);left:0;z-index:20;width:300px;padding:14px;border-radius:18px;background:rgba(38,4,15,.92);backdrop-filter:blur(16px);box-shadow:0 30px 60px -20px #000,inset 0 0 0 1px rgba(255,255,255,.12);opacity:0;transform:translateY(-6px);pointer-events:none;transition:.2s;white-space:normal;text-align:left;cursor:default}
+.wxw.open .wxpop{opacity:1;transform:none;pointer-events:auto}
+.wxpop h4{margin:0 0 10px;font:700 13px var(--sans);color:rgba(255,255,255,.7)}
+.wxd{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.wxd div{padding:10px 4px;border-radius:12px;background:rgba(255,255,255,.06);text-align:center;font-size:12px;color:rgba(255,255,255,.75)}
+.wxd b{display:block;font-size:14px;color:#fff;margin-top:4px}.wxd svg{width:22px;height:22px;margin:6px auto 0}
+.wxpop button{margin-top:10px;width:100%;min-height:38px;border-radius:11px;border:0;background:rgba(255,255,255,.1);color:#fff;font:600 13px var(--sans)}
+.wxpop button:hover{background:rgba(255,255,255,.16)}
+.wxpop small{display:block;margin-top:8px;font-size:11px;color:rgba(255,255,255,.45)}
+
+.hero-g{display:grid;grid-template-columns:1.12fr .88fr;gap:48px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:999px;background:linear-gradient(90deg,rgba(232,176,74,.22),rgba(255,255,255,.06));box-shadow:inset 0 0 0 1px rgba(232,176,74,.4);font:600 13.5px var(--sans);text-decoration:none;color:#ffe7b8;transition:.2s}
+.badge:hover{box-shadow:inset 0 0 0 1px rgba(232,176,74,.8)}
+.badge span{padding:3px 9px;border-radius:999px;background:var(--gold);color:#3b2400;font:800 11px var(--sans);letter-spacing:.06em}
+.hero h1{margin:22px 0 0;font:700 clamp(40px,6vw,76px)/1.02 var(--serif);letter-spacing:-.02em}
+.hero h1 em{font-style:italic;background:linear-gradient(100deg,#ffd0e0,#ff8fb6 40%,#ffd59a 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{margin:22px 0 0;font-size:clamp(17px,1.7vw,20px);line-height:1.6;color:rgba(255,255,255,.78);max-width:600px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:26px;font:600 13.5px var(--sans);color:rgba(255,255,255,.68)}
+.trust span{display:inline-flex;align-items:center;gap:7px}.trust svg{width:16px;height:16px;color:var(--pk2)}
+
+/* calculadora */
+.calc{position:relative;padding:26px;border-radius:28px;background:linear-gradient(160deg,rgba(255,255,255,.14),rgba(255,255,255,.05));box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 40px 80px -40px rgba(0,0,0,.8);backdrop-filter:blur(22px) saturate(1.3)}
+.calc::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(255,143,182,.9),transparent 40%,transparent 60%,rgba(232,176,74,.7));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.calc h3{font:700 22px var(--serif)}
+.calc p.k{margin:6px 0 18px;color:rgba(255,255,255,.7);font-size:14px;line-height:1.5}
+.f{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.f span{font:700 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.f input{min-height:52px;padding:0 16px;border-radius:14px;border:1.5px solid rgba(255,255,255,.18);background:rgba(20,2,9,.35);color:#fff;font:600 16px var(--sans);outline:0;transition:border-color .2s,box-shadow .2s;color-scheme:dark}
+.f input::placeholder{color:rgba(255,255,255,.4)}
+.f input:focus{border-color:var(--pk2);box-shadow:0 0 0 4px rgba(255,143,182,.18)}
+.calc .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.calc .btn{width:100%;margin-top:4px}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.res div{padding:12px 6px;border-radius:14px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);text-align:center}
+.res small{display:block;font:700 10.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.res b{display:block;font:800 30px/1.15 var(--sans);font-variant-numeric:tabular-nums}
+.res div.hl{background:linear-gradient(160deg,rgba(255,143,182,.3),rgba(255,143,182,.08));box-shadow:inset 0 0 0 1px rgba(255,143,182,.45)}
+.calc .note{margin:12px 0 0;font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.5}
+.calc .err{margin:8px 0 0;color:#ffc2d4;font:600 13px var(--sans);min-height:0}
+
+/* código de barras vertical */
+.barcode{position:absolute;right:22px;top:132px;bottom:120px;width:64px;display:flex;gap:10px;align-items:stretch;pointer-events:none;opacity:.85}
+.barcode svg{height:100%;width:34px}
+.barcode .bt{writing-mode:vertical-rl;transform:rotate(180deg);font:700 10.5px var(--mono);letter-spacing:.32em;color:rgba(255,255,255,.55);display:flex;justify-content:space-between;white-space:nowrap}
+.barcode .bt b{color:var(--pk2);font-weight:700}
+
+/* device */
+.device{position:relative;margin:70px auto 0;width:min(1080px,100%);perspective:1600px}
+.screen{position:relative;border-radius:18px 18px 0 0;padding:12px 12px 0;background:linear-gradient(180deg,#3b1525,#1d0912);box-shadow:0 -30px 80px -30px rgba(255,143,182,.35),inset 0 0 0 1px rgba(255,255,255,.12);transform:rotateX(var(--rx,8deg)) rotateY(var(--ry,0deg));transform-origin:50% 100%;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.screen .bar{display:flex;align-items:center;gap:6px;padding:4px 6px 10px}.screen .bar i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.screen .bar i:nth-child(2){background:#febc2e}.screen .bar i:nth-child(3){background:#28c840}
+.screen .bar span{margin-left:12px;padding:4px 12px;border-radius:8px;background:rgba(255,255,255,.07);font:500 12px var(--mono);color:rgba(255,255,255,.55)}
+.screen img{border-radius:10px 10px 0 0;width:100%;height:auto}
+.phone{position:absolute;right:-10px;bottom:-40px;width:23%;min-width:150px;padding:9px;border-radius:38px;background:#140409;box-shadow:0 40px 60px -20px rgba(0,0,0,.7),inset 0 0 0 1.5px rgba(255,255,255,.14);animation:float 7s ease-in-out infinite}
+.phone img{border-radius:30px}
+.fl{position:absolute;z-index:3;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.95);color:var(--ink);box-shadow:0 24px 40px -20px rgba(0,0,0,.6);display:flex;align-items:center;gap:10px;font:600 13px var(--sans);animation:float 8s ease-in-out infinite}
+.fl b{display:block;font:800 17px var(--sans)}
+.fl small{display:block;color:var(--mute);font-size:11.5px}
+.fl .n{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#f06a9b,#8e1248);color:#fff;font:800 18px var(--sans)}
+.fl.a{left:-26px;top:18%}.fl.b{left:6%;bottom:12%;animation-delay:-3s}.fl.c{right:16%;top:-22px;animation-delay:-5s}
+.fl .dots{display:flex;gap:3px}.fl .dots i{width:12px;height:12px;border-radius:4px}
+
+/* marquee */
+.mq{background:#fff;border-bottom:1px solid var(--line);overflow:hidden;padding:20px 0;position:relative;z-index:2}
+.mq-t{display:flex;gap:44px;width:max-content;animation:mq 50s linear infinite}
+.mq:hover .mq-t{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq-t span{display:inline-flex;align-items:center;gap:12px;font:700 15px var(--sans);color:#5b4752;white-space:nowrap}
+.mq-t span::before{content:"";width:7px;height:7px;transform:rotate(45deg);background:linear-gradient(135deg,var(--pk),var(--gold));border-radius:2px}
+
+/* números */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.st{position:relative;padding:22px 20px;border-radius:20px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+.st b{display:block;font:800 clamp(34px,4vw,48px)/1 var(--sans);letter-spacing:-.03em;background:linear-gradient(120deg,var(--wine),var(--pk));-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.st span{display:block;margin-top:8px;font:600 14px/1.35 var(--sans);color:var(--mute)}
+.st::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(224,69,127,.14),transparent 70%)}
+
+/* módulos */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{min-height:42px;padding:0 16px;border-radius:999px;border:0;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);font:700 14px var(--sans);color:var(--mute);transition:.2s}
+.tabs button:hover{color:var(--wine);box-shadow:inset 0 0 0 1.5px #e7b8ca}
+.tabs button.on{background:var(--wine);color:#fff;box-shadow:0 10px 22px -12px var(--wine)}
+.tabs button em{font-style:normal;opacity:.6;margin-left:6px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{--mx:50%;--my:50%;position:relative;padding:22px;border-radius:var(--r);background:#fff;box-shadow:inset 0 0 0 1px var(--line);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;overflow:hidden;isolation:isolate}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s;background:radial-gradient(380px circle at var(--mx) var(--my),rgba(224,69,127,.12),transparent 45%)}
+.card:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px #edc3d4,0 26px 40px -28px rgba(122,16,40,.5)}.card:hover::before{opacity:1}
+.card .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(140deg,#fde7ef,#fbd3e2);color:var(--wine);margin-bottom:16px;transition:transform .3s}
+.card:hover .ic{transform:rotate(-6deg) scale(1.06)}
+.card .ic svg{width:23px;height:23px}
+.card .no{position:absolute;right:18px;top:18px;font:700 12px var(--mono);color:#d6bfc9}
+.card h3{font:800 17px var(--sans)}
+.card p{margin:8px 0 0;font-size:14px;line-height:1.55;color:var(--mute)}
+.card .tg{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.card .tg span{padding:4px 9px;border-radius:8px;background:#faf3f6;font:600 12px var(--sans);color:#7b5d6a}
+.card.new{box-shadow:inset 0 0 0 1.5px rgba(232,176,74,.7)}
+.card.new .no{color:#3b2400;background:var(--gold);padding:3px 8px;border-radius:999px;font:800 10.5px var(--sans);letter-spacing:.08em}
+.card.wide{grid-column:span 2}
+.card.hide{display:none}
+
+/* gráficos */
+.lab{background:linear-gradient(180deg,#fff,#fdf2f6);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lab-top{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.who{display:flex;align-items:center;gap:12px;padding:8px 16px 8px 8px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+.who .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#f06a9b,#8e1248);color:#fff;font:800 14px var(--sans)}
+.who b{display:block;font-size:14.5px}.who small{color:var(--mute);font-size:12.5px}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.panel{grid-column:span 4;padding:22px;border-radius:var(--r);background:#fff;box-shadow:inset 0 0 0 1px var(--line),0 24px 40px -36px rgba(122,16,40,.45);min-width:0}
+.panel.s8{grid-column:span 8}.panel.s6{grid-column:span 6}.panel.s12{grid-column:span 12}
+.panel h4{margin:0;font:800 15px var(--sans)}
+.panel .ph{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
+.panel .ph small{color:var(--mute);font:600 12.5px var(--sans)}
+.kp{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.kp div{padding:12px 6px;border-radius:14px;background:#fbf5f8;text-align:center}
+.kp small{display:block;font:800 10.5px var(--sans);letter-spacing:.1em;color:#9a7b88}
+.kp b{display:block;font:800 26px/1.2 var(--sans);color:var(--wine);font-variant-numeric:tabular-nums}
+.tri{overflow:auto;padding-bottom:4px}
+.tri svg{width:100%;height:auto;min-width:420px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;font:600 12.5px var(--sans);color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.chart svg{width:100%;height:auto;overflow:visible}
+.chart .tip{font:700 12px var(--sans)}
+.arc-now{display:flex;align-items:center;gap:16px;padding:16px;border-radius:18px;background:linear-gradient(135deg,#7a1028,#3a0716);color:#fff;margin-top:12px}
+.arc-now .ring{position:relative;width:76px;height:76px;flex:none}
+.arc-now .ring svg{width:76px;height:76px;transform:rotate(-90deg)}
+.arc-now .ring b{position:absolute;inset:0;display:grid;place-items:center;font:800 26px var(--sans)}
+.arc-now small{color:rgba(255,255,255,.7);font-size:12.5px}
+.arc-now strong{display:block;font:700 18px var(--serif);margin:2px 0}
+
+.panel{display:flex;flex-direction:column}
+.sub-h{margin:18px 0 8px;font:800 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#9a7b88}
+.cyc{display:flex;gap:4px;height:46px}
+.cyc div{position:relative;display:flex;flex-direction:column;justify-content:center;padding:0 10px;border-radius:12px;background:#fbf2f6;min-width:0;overflow:hidden}
+.cyc div b{font:800 16px var(--sans);color:var(--wine)}.cyc div small{font-size:11px;color:#9a7b88;white-space:nowrap}
+.cyc div.now{background:linear-gradient(135deg,#f06a9b,#8e1248)}.cyc div.now b,.cyc div.now small{color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{padding:6px 10px;border-radius:10px;background:#faf3f6;font:700 12.5px var(--sans);color:#6f5c65}
+.chips span b{color:var(--wine)}
+/* vídeo */
+.tour{background:radial-gradient(900px 500px at 80% 0%,#5b0d3a 0%,transparent 60%),linear-gradient(170deg,#3a0716,#1b030b);color:#fff;overflow:hidden}
+.tour .eyebrow{color:var(--pk2)}.tour .lead{color:rgba(255,255,255,.72)}
+.tour-g{display:grid;grid-template-columns:1fr 280px;gap:36px;align-items:center}
+.vbox{position:relative;border-radius:20px;padding:10px;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 50px 90px -40px #000}
+.vbox video{width:100%;border-radius:12px;aspect-ratio:16/10;object-fit:cover;background:#1d0912}
+.vphone{position:relative;border-radius:40px;padding:10px;background:#0f0306;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14),0 50px 90px -40px #000}
+.vphone video{width:100%;border-radius:31px;aspect-ratio:540/1170;object-fit:cover;background:#1d0912}
+.vtags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.vtags span{padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);font:600 13px var(--sans);color:rgba(255,255,255,.8)}
+.vtags span b{font-family:var(--mono);color:var(--pk2);margin-right:6px}
+.play{position:absolute;right:22px;bottom:22px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:0;background:rgba(0,0,0,.55);color:#fff;font:700 12.5px var(--sans);backdrop-filter:blur(8px)}
+.play svg{width:14px;height:14px}
+
+/* assinatura */
+.sig-g{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.steps{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.step{display:flex;gap:14px;padding:16px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+.step i{flex:none;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--wine);color:#fff;font:800 14px var(--sans);font-style:normal}
+.step b{display:block;font-size:15.5px}.step span{display:block;margin-top:3px;color:var(--mute);font-size:14px;line-height:1.5}
+.sig-card{position:relative;padding:26px;border-radius:28px;background:linear-gradient(160deg,#7a1028,#3a0716);color:#fff;box-shadow:var(--shadow);overflow:hidden}
+.sig-card::after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,143,182,.35),transparent 70%)}
+.sig-card small{font:800 11px var(--sans);letter-spacing:.14em;color:rgba(255,255,255,.6)}
+.eq{display:flex;align-items:center;gap:10px;margin:14px 0 20px}
+.eq div{flex:1;padding:14px 8px;border-radius:16px;background:rgba(255,255,255,.1);text-align:center}
+.eq div b{display:block;font:800 34px/1 var(--sans)}.eq div span{font:700 11px var(--sans);letter-spacing:.08em;color:rgba(255,255,255,.65)}
+.eq em{font:800 24px var(--sans);font-style:normal;color:var(--pk2)}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.95);color:var(--ink);margin-top:10px;transform:translateX(0);transition:transform .25s}
+.opt:hover{transform:translateX(6px)}
+.opt b{font:700 18px var(--serif)}.opt span{display:flex;gap:6px}
+.opt span i{font-style:normal;padding:3px 8px;border-radius:8px;background:#f6eef2;font:700 11.5px var(--sans);color:var(--wine)}
+.opt.ok span i:last-child{background:#e6f5ec;color:var(--ok)}
+
+/* matriz */
+.mx{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.mx span{padding:9px 0;border-radius:10px;text-align:center;font:800 14px var(--mono);border:1px solid}
+.mx .bo{background:#e8f4ee;border-color:#b6dfca;color:#1f6b47}.mx .ra{background:#fff6d6;border-color:#efd58a;color:#7a5a08}.mx .pe{background:#fdecea;border-color:#f3b8b1;color:#a3221a}
+.mx-h{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:6px;font:800 11px var(--sans);letter-spacing:.1em;color:#9a7b88;text-align:center}
+
+/* depoimentos */
+.dep{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.dep-t{display:flex;gap:16px;width:max-content;animation:mq 80s linear infinite}
+.dep:hover .dep-t{animation-play-state:paused}
+.msg{width:320px;padding:16px;border-radius:20px;background:#fff;box-shadow:inset 0 0 0 1px var(--line),0 20px 30px -28px rgba(122,16,40,.4)}
+.msg header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.msg .av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:#fff;font:800 13px var(--sans)}
+.msg header b{display:block;font-size:14px}.msg header small{color:var(--ok);font-size:12px;font-weight:600}
+.msg p{margin:0;padding:12px 14px;border-radius:4px 16px 16px 16px;background:#f3faf6;font-size:14px;line-height:1.5}
+.msg .il{margin-left:auto;padding:3px 8px;border-radius:999px;background:#f4eef1;font:700 10.5px var(--sans);color:#8f7783}
+.disc{text-align:center;margin-top:18px;font-size:13px;color:var(--mute)}
+
+/* planos */
+.plans{background:radial-gradient(800px 400px at 10% 0%,rgba(224,69,127,.08),transparent 60%),var(--ivory)}
+.toggle{display:inline-flex;padding:5px;border-radius:16px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);margin:0 auto 30px;position:relative}
+.toggle button{position:relative;z-index:1;min-height:44px;padding:0 20px;border:0;border-radius:12px;background:none;font:700 14.5px var(--sans);color:var(--mute);transition:color .25s}
+.toggle button.on{color:#fff}
+.toggle .pillbg{position:absolute;top:5px;bottom:5px;border-radius:12px;background:var(--wine);box-shadow:0 10px 20px -10px var(--wine);transition:left .3s cubic-bezier(.2,.8,.2,1),width .3s cubic-bezier(.2,.8,.2,1)}
+.toggle em{font-style:normal;margin-left:6px;padding:2px 7px;border-radius:999px;background:#e6f5ec;color:var(--ok);font:800 11px var(--sans)}
+.pl-g{display:grid;grid-template-columns:1.15fr 1fr;gap:18px;align-items:stretch}
+.price{position:relative;padding:32px;border-radius:28px;background:linear-gradient(160deg,#7a1028,#3a0716 70%);color:#fff;box-shadow:var(--shadow);overflow:hidden}
+.price::before{content:"";position:absolute;inset:0;opacity:.12;background-image:inherit}
+.price .tag{display:inline-flex;padding:5px 12px;border-radius:999px;background:var(--gold);color:#3b2400;font:800 11.5px var(--sans);letter-spacing:.08em}
+.price h3{margin-top:16px;font:700 28px var(--serif)}
+.amt{display:flex;align-items:flex-start;gap:6px;margin:16px 0 4px}
+.amt small{font:700 20px var(--sans);margin-top:10px;opacity:.8}
+.amt b{font:800 76px/1 var(--sans);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.amt span{font:700 18px var(--sans);margin-top:10px;opacity:.8}
+.price .per{color:rgba(255,255,255,.72);font-size:14.5px;min-height:22px}
+.price .save{display:inline-block;margin-top:10px;padding:6px 12px;border-radius:10px;background:rgba(255,255,255,.12);font:700 13px var(--sans);color:#ffe7b8}
+.price .btn{width:100%;margin-top:24px}
+.guar{display:flex;gap:12px;align-items:center;margin-top:18px;padding:14px;border-radius:16px;background:rgba(255,255,255,.08);font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.85)}
+.guar svg{flex:none;width:30px;height:30px;color:var(--gold)}
+.pays{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.pays span{padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.1);font:700 12px var(--sans);color:rgba(255,255,255,.8)}
+.incl{padding:28px;border-radius:28px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+.incl h4{margin:0 0 14px;font:800 16px var(--sans)}
+.incl ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+.incl li{display:flex;gap:9px;font-size:14px;line-height:1.45;color:#4f3d46}
+.incl li svg{flex:none;width:18px;height:18px;color:var(--ok);margin-top:1px}
+.cmp{margin-top:18px;width:100%;border-collapse:collapse;font-size:14px}
+.cmp th,.cmp td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:center}
+.cmp th:first-child,.cmp td:first-child{text-align:left}
+.cmp th{font:800 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.cmp td b{color:var(--wine)}
+.cmp tr.hl td{background:#fff8ea}
+.other{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.oc{padding:26px;border-radius:24px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+.oc small{font:800 11px var(--sans);letter-spacing:.14em;color:var(--pk)}
+.oc h3{margin:8px 0 6px;font:700 22px var(--serif)}
+.oc p{margin:0 0 14px;color:var(--mute);font-size:14.5px;line-height:1.55}
+.oc ul{margin:0 0 18px;padding-left:18px;color:#4f3d46;font-size:14px;line-height:1.7}
+
+/* faq */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}
+.qa{border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);margin-bottom:10px;overflow:hidden;transition:box-shadow .2s}
+.qa:hover{box-shadow:inset 0 0 0 1px #e7c6d4}
+.qa button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;border:0;background:none;text-align:left;font:700 16px var(--sans);color:var(--ink)}
+.qa button i{flex:none;width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:#faf3f6;color:var(--wine);transition:transform .3s,background .3s}
+.qa.open button i{transform:rotate(45deg);background:var(--wine);color:#fff}
+.qa .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s cubic-bezier(.2,.8,.2,1)}
+.qa.open .a{grid-template-rows:1fr}
+.qa .a>div{overflow:hidden}
+.qa .a p{margin:0;padding:0 20px 18px;color:var(--mute);line-height:1.6;font-size:15px}
+
+/* final */
+.final{position:relative;margin:0 auto;padding:clamp(40px,6vw,70px);border-radius:36px;color:#fff;text-align:center;overflow:hidden;isolation:isolate;background:radial-gradient(700px 400px at 20% 0%,#b21a4a,transparent 60%),radial-gradient(600px 400px at 100% 100%,#5b0d3a,transparent 60%),#3a0716}
+.final h2{color:#fff}.final .lead{color:rgba(255,255,255,.75);margin-inline:auto}
+.final .ctas{justify-content:center}
+footer{padding:56px 0 110px;background:#1b030b;color:rgba(255,255,255,.6);font-size:14px;margin-top:clamp(80px,10vw,120px)}
+.ft{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer img{height:38px;width:auto;margin-bottom:12px}
+footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:#fff}
+.fl-l{display:flex;gap:22px;flex-wrap:wrap}
+
+/* flutuantes */
+.wa{position:fixed;right:18px;bottom:18px;z-index:80;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;box-shadow:0 16px 30px -10px rgba(37,211,102,.7);transition:transform .2s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:30px;height:30px}
+.wa::after{content:"Fale com a gente";position:absolute;right:70px;padding:8px 12px;border-radius:10px;background:#1d1117;color:#fff;font:700 13px var(--sans);white-space:nowrap;opacity:0;transform:translateX(6px);transition:.2s;pointer-events:none}
+.wa:hover::after{opacity:1;transform:none}
+.wa .pulse{position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.top{position:fixed;right:24px;bottom:90px;z-index:79;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--wine);box-shadow:0 10px 24px -10px rgba(0,0,0,.4);display:grid;place-items:center;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none}
+.top.show{opacity:1;transform:none;pointer-events:auto}
+.top svg.ring{position:absolute;inset:0;width:46px;height:46px;transform:rotate(-90deg)}
+.top svg.ar{width:18px;height:18px}
+.mbar{display:none}
+
+/* revelar */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:1100px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .panel,.panel.s8,.panel.s6{grid-column:span 12}
+  .hero-g{grid-template-columns:1fr}
+  .calc{max-width:560px}
+  .barcode{display:none}
+}
+@media (max-width:900px){
+  .nav nav,.nav .in{display:none}.burger{display:grid}
+  .nav .btn{display:none}
+  .nav.open{background:rgba(38,4,15,.96);flex-wrap:wrap}
+  .nav.open nav{display:flex;flex-direction:column;width:100%;order:3;padding:8px 0}
+  .nav.open nav a{padding:14px 10px;font-size:16px}
+  .tour-g,.sig-g,.pl-g,.faq,.other{grid-template-columns:1fr}
+  .vphone{max-width:280px;margin:0 auto}
+  .fl.a{left:4px}.fl.c{display:none}
+}
+@media (max-width:620px){
+  .wrap{width:calc(100% - 28px)}
+  .nav{left:10px;right:10px;width:auto;transform:none;top:10px}.nav.solid{top:6px}
+  .calc{padding:20px}.calc .row{grid-template-columns:1fr}.calc .row .f:last-child span{display:none}
+  .f input{min-width:0;width:100%}
+  .screen,.fl.c{display:none}
+  .phone{display:block;position:relative;right:auto;bottom:auto;margin:0 auto;width:66%;min-width:0;padding:8px;border-radius:34px}.phone img{border-radius:27px}
+  .fl.a{left:0;top:30%}
+  .toggle button{padding:0 11px;font-size:13.5px}.toggle em{display:none}
+  .barcode{display:none}
+  .hero{padding-top:100px}
+  .live{gap:8px}.chip{font-size:12.5px}
+  .grid,.stats{grid-template-columns:1fr 1fr}
+  .card.wide{grid-column:span 2}
+  .card{padding:18px}.card p{font-size:13.5px}
+  .stats .st:last-child{grid-column:span 2}
+  .kp{grid-template-columns:repeat(5,1fr);gap:5px}.kp b{font-size:21px}
+  .incl ul{grid-template-columns:1fr}
+  .amt b{font-size:64px}
+  .fl{padding:9px 11px}.fl b{font-size:15px}.fl.b{display:none}
+  .device{margin-top:50px}
+  .cmp{font-size:13px}.cmp th,.cmp td{padding:10px 6px}
+  .mbar{display:flex;position:fixed;left:10px;right:10px;bottom:10px;z-index:85;align-items:center;gap:12px;padding:10px 10px 10px 16px;border-radius:18px;background:rgba(38,4,15,.92);backdrop-filter:blur(14px);color:#fff;box-shadow:0 20px 40px -16px rgba(0,0,0,.6);transform:translateY(130%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+  .mbar.show{transform:none}
+  .mbar div{line-height:1.2}.mbar small{display:block;font-size:11.5px;color:rgba(255,255,255,.65)}.mbar b{font-size:15px}
+  .mbar .btn{margin-left:auto;min-height:46px;padding:0 18px;font-size:14.5px}
+  .wa{bottom:86px;width:52px;height:52px}.wa::after{display:none}
+  .top{bottom:148px;right:21px}
+  footer{padding-bottom:130px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 3.5 5.4 3.5 8.5s-1 5.9-3.5 8.5c-2.5-2.6-3.5-5.4-3.5-8.5s1-5.9 3.5-8.5z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-5h4v5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c1-4 4.5-6 8-6s7 2 8 6"/></symbol>
+    <symbol id="i-tri" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3.5 5h17L12 20z"/><path d="M8 9.5h8"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V4M4 20h16M8 16l4-5 3 3 5-7"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19l7-7"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1z"/><path d="M12 6v14"/></symbol>
+    <symbol id="i-build" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 20V8l6-4v16M10 20h10V10l-10-2"/><path d="M14 13h2M14 16h2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-case" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12" rx="2.5"/><path d="M9 7V5h6v2M12 11v4M10 13h4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h3"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 3-5.5 6-5.5s6 2 6 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5c2.8 0 5 1.6 5 4.5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5l12 7-12 7z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <a href="#top" aria-label="AZOVAH, início"><img src="assets/logo_branca.webp" alt="AZOVAH Numerologia" width="140" height="34"></a>
+  <nav id="menu" aria-label="Principal">
+    <a href="#modulos">Módulos</a><a href="#numeros">Na prática</a><a href="#tour">Por dentro</a><a href="#planos">Planos</a><a href="#faq">Dúvidas</a>
+  </nav>
+  <a class="in" href="https://claude.ai/artifact/J3NnbEYq72nfPMbNUuZwGD">Entrar</a>
+  <a class="btn" href="#planos">Assinar agora</a>
+  <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+</header>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="grain" aria-hidden="true"></div><div class="net" aria-hidden="true"></div><div class="spot" id="spot" aria-hidden="true"></div>
+  <div class="orb" style="width:10px;height:10px;left:8%;top:30%" aria-hidden="true"></div>
+  <div class="orb" style="width:6px;height:6px;left:46%;top:18%;animation-delay:-4s" aria-hidden="true"></div>
+  <div class="orb" style="width:8px;height:8px;left:58%;top:62%;animation-delay:-2s" aria-hidden="true"></div>
+
+  <div class="barcode" aria-hidden="true"><svg id="bc" viewBox="0 0 34 600" preserveAspectRatio="none"></svg><div class="bt"><span>AZOVAH · NUMEROLOGIA CABALÍSTICA</span><span id="bcd"><b>Nº</b> 11 · 22 · 33</span></div></div>
+
+  <div class="wrap">
+    <div class="live" aria-label="Agora">
+      <span class="chip"><i><svg><use href="#i-clock"/></svg></i><span class="clock" id="clk">--:--<span class="sec">:--</span></span><span id="greet"></span></span>
+      <span class="chip"><i><svg><use href="#i-cal"/></svg></i><span id="dt">—</span></span>
+      <span class="chip" title="Soma de todos os dígitos da data de hoje"><i><svg><use href="#i-star"/></svg></i>Dia universal <b id="du">—</b></span>
+      <span class="wxw" id="wxw" hidden><button type="button" class="chip wx" id="wx" aria-haspopup="dialog" aria-expanded="false"><i id="wxi"><svg><use href="#i-sun"/></svg></i><span id="wxt">Clima</span></button>
+        <div class="wxpop" role="dialog" aria-label="Previsão do tempo"><h4 id="wxc">Previsão</h4><div class="wxd" id="wxd"></div><button type="button" id="wxgeo">Usar minha localização</button><small>Dados: Open-Meteo</small></div></span>
+    </div>
+
+    <div class="hero-g">
+      <div>
+        <a class="badge" href="#matriz"><span>NOVO</span>Matriz triângulo: os 81 arcanos em cores</a>
+        <h1>O sistema mais completo de <em>numerologia cabalística</em> e arcanos.</h1>
+        <p class="sub">Mapa, triângulo da vida, matriz de arcanos, assinatura ideal, Mentor e calendário favorável. Tudo calculado pela tabela cabalística e explicado número por número, em 7 idiomas.</p>
+        <div class="ctas">
+          <a class="btn mag" href="#planos">Começar agora<svg><use href="#i-arrow"/></svg></a>
+          <a class="btn ghost" href="#tour"><svg style="width:16px;height:16px"><use href="#i-play"/></svg>Ver por dentro</a>
+        </div>
+        <div class="trust">
+          <span><svg><use href="#i-check"/></svg>Sem fidelidade</span>
+          <span><svg><use href="#i-check"/></svg>Mapas e PDFs ilimitados</span>
+          <span><svg><use href="#i-check"/></svg>Computador e celular</span>
+        </div>
+      </div>
+
+      <form class="calc" id="calc" novalidate>
+        <h3>Experimente agora</h3>
+        <p class="k">Digite o nome completo de registro e a data de nascimento. O cálculo é feito aqui no seu aparelho, nada é enviado.</p>
+        <label class="f"><span>Nome completo</span><input id="cN" autocomplete="name" placeholder="Como está na certidão" value="Helena Cristina Duarte"></label>
+        <div class="row">
+          <label class="f"><span>Nascimento</span><input id="cD" type="date" value="1988-09-21"></label>
+          <label class="f"><span>&nbsp;</span><button class="btn" id="cGo" style="min-height:52px">Calcular<svg><use href="#i-arrow"/></svg></button></label>
+        </div>
+        <p class="err" id="cErr" role="alert"></p>
+        <div class="res" aria-live="polite">
+          <div class="hl"><small>Expressão</small><b id="rE">3</b></div>
+          <div><small>Motivação</small><b id="rM">8</b></div>
+          <div><small>Impressão</small><b id="rI">4</b></div>
+          <div><small>Destino</small><b id="rD">11</b></div>
+          <div class="hl"><small>Arcano atual</small><b id="rA">13</b></div>
+          <div><small>Ano pessoal</small><b id="rY">4</b></div>
+        </div>
+        <p class="note">Exemplo com nome fictício. Os gráficos logo abaixo mudam junto com o seu cálculo. <a href="#numeros" style="color:#ffd0e0">Ver gráficos</a></p>
+      </form>
+    </div>
+
+    <div class="device" id="device">
+      <div class="fl a"><span class="n" id="flE">3</span><span><small>Expressão</small><b>Quem você é</b></span></div>
+      <div class="fl c"><span><small>Matriz</small><span class="dots"><i style="background:#8fd0b4"></i><i style="background:#8fd0b4"></i><i style="background:#e8c766"></i><i style="background:#8fd0b4"></i></span></span><b>★</b></div>
+      <div class="fl b"><span class="n" style="background:linear-gradient(135deg,#e8b04a,#a86d08)">5</span><span><small>Opções exatas</small><b>Monte sua assinatura</b></span></div>
+      <div class="screen" id="scr"><div class="bar"><i></i><i></i><i></i><span>azovah.app · Central de Controle</span></div><img src="assets/shot_inicio_d.webp" alt="Central de Controle do AZOVAH no computador" width="1440" height="900" fetchpriority="high"></div>
+      <div class="phone"><img src="assets/shot_inicio_m.webp" alt="AZOVAH no celular" width="390" height="844"></div>
+    </div>
+  </div>
+</section>
+
+<div class="mq" aria-hidden="true"><div class="mq-t" id="mq"></div></div>
+
+<!-- ============ NÚMEROS ============ -->
+<section class="sec" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="stats">
+      <div class="st rv"><b data-n="17">0</b><span>módulos em qualquer plano</span></div>
+      <div class="st rv"><b data-n="99">0</b><span>arcanos com texto explicativo</span></div>
+      <div class="st rv"><b data-n="81">0</b><span>combinações na Matriz triângulo</span></div>
+      <div class="st rv"><b data-n="7">0</b><span>idiomas, com troca na hora</span></div>
+      <div class="st rv"><b data-n="5">0</b><span>opções exatas de assinatura por rodada</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MÓDULOS ============ -->
+<section class="sec" id="modulos" style="padding-top:60px">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="eyebrow">O sistema</span><h2>17 módulos. Do primeiro número<br>ao acompanhamento da vida inteira.</h2><p class="lead">O AZOVAH calcula, explica, aconselha e organiza. Escolha uma área para ver o que tem dentro.</p></div>
+    <div class="tabs" role="tablist" id="tabs">
+      <button class="on" data-g="all" role="tab" aria-selected="true">Todos<em>17</em></button>
+      <button data-g="mapa" role="tab" aria-selected="false">O mapa<em>5</em></button>
+      <button data-g="ass" role="tab" aria-selected="false">A assinatura<em>4</em></button>
+      <button data-g="vida" role="tab" aria-selected="false">A vida em movimento<em>4</em></button>
+      <button data-g="alem" role="tab" aria-selected="false">Além da pessoa<em>4</em></button>
+    </div>
+    <div class="grid" id="mods"></div>
+  </div>
+</section>
+
+<!-- ============ GRÁFICOS ============ -->
+<section class="sec lab" id="numeros">
+  <div class="wrap">
+    <div class="lab-top">
+      <div class="sec-h rv" style="margin:0"><span class="eyebrow">Na prática</span><h2>Os números ganham forma.</h2><p class="lead">Gráficos de verdade, calculados agora mesmo pelo mesmo motor do sistema. Troque o nome lá em cima e veja tudo mudar.</p></div>
+      <div class="who rv"><span class="av" id="wAv">HD</span><span><b id="wNm">Helena Cristina Duarte</b><small id="wSb">21/09/1988 · nome fictício</small></span></div>
+    </div>
+    <div class="bento">
+      <div class="panel s8 rv">
+        <div class="ph"><h4>Triângulo da vida</h4><small id="triInfo">—</small></div>
+        <div class="tri" id="tri"></div>
+        <div class="legend"><span><i style="background:#c2185b"></i>sequência negativa</span><span><i style="background:#e8b04a"></i>linha do arcano atual</span><span><i style="background:#3a0716"></i>vértice (regente)</span></div>
+      </div>
+      <div class="panel rv">
+        <div class="ph"><h4>Os números principais</h4></div>
+        <div class="kp" id="kp"></div>
+        <div class="arc-now"><span class="ring"><svg viewBox="0 0 76 76"><circle cx="38" cy="38" r="32" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="7"/><circle id="arcRing" cx="38" cy="38" r="32" fill="none" stroke="#ff8fb6" stroke-width="7" stroke-linecap="round" stroke-dasharray="201" stroke-dashoffset="201" style="transition:stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)"/></svg><b id="arcN">13</b></span><span><small>Arcano atual</small><strong id="arcNm">—</strong><small id="arcDt">—</small></span></div>
+        <div class="sub-h">Ciclos de vida</div><div class="cyc" id="cyc"></div>
+        <div class="sub-h">Momentos decisivos</div><div class="cyc" id="mom"></div>
+        <div class="sub-h">Lições e desafios</div><div class="chips" id="lic"></div>
+        <div class="sub-h">Harmonia do número</div><div class="chips" id="harm"></div>
+      </div>
+      <div class="panel s6 rv">
+        <div class="ph"><h4>Ano pessoal, próximos 9 anos</h4><small id="anoInfo">ciclo de 1 a 9</small></div>
+        <div class="chart" id="chAno"></div>
+      </div>
+      <div class="panel s6 rv">
+        <div class="ph"><h4>Força de cada número no nome</h4><small>quantas letras valem cada número</small></div>
+        <div class="chart" id="chCont"></div>
+      </div>
+      <div class="panel s12 rv">
+        <div class="ph"><h4>Linha do tempo dos arcanos</h4><small id="tlInfo">cada fase da vida tem um arcano</small></div>
+        <div class="chart" id="chTl" style="overflow-x:auto"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOUR ============ -->
+<section class="sec tour" id="tour">
+  <div class="wrap">
+    <div class="sec-h c rv"><span class="eyebrow">Veja por dentro</span><h2>O sistema em movimento</h2><p class="lead">Cada tela do AZOVAH, no computador e no celular, com o visual novo.</p></div>
+    <div class="tour-g">
+      <div class="vbox rv"><video id="vD" src="assets/tour5_d.mp4" poster="assets/poster5_d.jpg" muted loop playsinline preload="none" aria-label="Tour do AZOVAH no computador"></video><button class="play" data-v="vD" type="button"><svg><use href="#i-pause"/></svg><span>Pausar</span></button></div>
+      <div class="vphone rv"><video id="vM" src="assets/tour5_m.mp4" poster="assets/poster5_m.jpg" muted loop playsinline preload="none" aria-label="Tour do AZOVAH no celular"></video></div>
+    </div>
+    <div class="vtags rv" id="vtags"></div>
+  </div>
+</section>
+
+<!-- ============ ASSINATURA + MATRIZ ============ -->
+<section class="sec">
+  <div class="wrap sig-g">
+    <div class="rv">
+      <span class="eyebrow">Exclusivo AZOVAH</span>
+      <h2>A assinatura ideal, com os números que você escolher.</h2>
+      <p class="lead">Você escolhe a Expressão, a Motivação, a Impressão e o arcano. O AZOVAH testa acentos, letras dobradas, sobrenomes e iniciais, e só mostra os nomes que fecham exatamente.</p>
+      <div class="steps">
+        <div class="step"><i>1</i><span><b>Escolha o que quer vibrar</b><span>Escolhidos dois números, o terceiro é calculado: Expressão = Motivação + Impressão.</span></span></div>
+        <div class="step"><i>2</i><span><b>O planejador encontra o nome</b><span>Calcula onde cai o arcano da idade de hoje e monta o nome para fechar com ele.</span></span></div>
+        <div class="step"><i>3</i><span><b>Se for impossível, ele explica</b><span>Mostra o motivo e quais arcanos fecham com todos os outros filtros.</span></span></div>
+      </div>
+    </div>
+    <div class="sig-card rv">
+      <small>PEDIDO</small>
+      <div class="eq"><div><b>6</b><span>EXPRESSÃO</span></div><em>=</em><div><b>3</b><span>MOTIVAÇÃO</span></div><em>+</em><div><b>3</b><span>IMPRESSÃO</span></div></div>
+      <small>OPÇÕES QUE FECHAM EXATAMENTE</small>
+      <div class="opt ok"><b>Helénâ Cristinnâ D.</b><span><i>EXP 6</i><i>arcano 32</i><i>sem dívidas</i></span></div>
+      <div class="opt ok"><b>Helênna Cristínâ D.</b><span><i>EXP 6</i><i>arcano 13</i><i>sem dívidas</i></span></div>
+      <div class="opt ok"><b>Hellena Cristìnnã Duarte</b><span><i>EXP 6</i><i>arcano 21</i><i>sem dívidas</i></span></div>
+      <p style="margin:14px 0 0;font-size:12.5px;color:rgba(255,255,255,.6)">Opções reais geradas pelo sistema para o nome fictício Helena Cristina Duarte, sem sequências negativas.</p>
+    </div>
+  </div>
+
+  <div class="wrap sig-g" id="matriz" style="margin-top:110px">
+    <div class="panel rv" style="grid-column:auto">
+      <div class="ph"><h4>Matriz de arcanos do triângulo</h4><small>tela do sistema</small></div>
+      <img src="assets/matriz.webp" alt="Matriz de arcanos do triângulo no AZOVAH" width="770" height="470" loading="lazy" style="width:100%;height:auto;border-radius:14px;box-shadow:inset 0 0 0 1px var(--line)">
+      <div class="legend"><span><i style="background:#8fd0b4"></i>arcano bom</span><span><i style="background:#e8c766"></i>razoável</span><span><i style="background:#f0a59c"></i>pesado</span><span>★ os quatro bons</span></div>
+    </div>
+    <div class="rv">
+      <span class="eyebrow">Novo · Matriz triângulo</span>
+      <h2>Os 81 arcanos do nome, em cores.</h2>
+      <p class="lead">Digite o nome e a data: a matriz mostra cada par de números nos quatro triângulos (vida, pessoal, social e destino). Verde é bom, amarelo é razoável, vermelho é pesado. A estrela aparece quando os quatro são bons.</p>
+      <div class="steps">
+        <div class="step"><i><svg style="width:18px;height:18px"><use href="#i-grid"/></svg></i><span><b>Legenda clara</b><span>Siglas TV, TP, TS e TD explicadas na própria tela.</span></span></div>
+        <div class="step"><i><svg style="width:18px;height:18px"><use href="#i-star"/></svg></i><span><b>Filtros rápidos</b><span>Todas as linhas, só com estrela ou só os pares que estão no nome.</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="sec" style="background:linear-gradient(180deg,#fff,#fdf3f7);border-top:1px solid var(--line)">
+  <div class="wrap"><div class="sec-h c rv"><span class="eyebrow">Histórias de transformação</span><h2>O que a numerologia pode mudar</h2><p class="lead">Conversas ilustrativas, criadas para mostrar o tipo de mudança que a numerologia cabalística costuma trazer. Não são mensagens de clientes reais.</p></div></div>
+  <div class="dep"><div class="dep-t" id="dep"></div></div>
+  <p class="disc">Passe o mouse para pausar · conteúdo ilustrativo</p>
+</section>
+
+<!-- ============ PLANOS ============ -->
+<section class="sec plans" id="planos">
+  <div class="wrap">
+    <div class="sec-h c rv"><span class="eyebrow">Planos</span><h2>Todos os módulos em qualquer plano.</h2><p class="lead">Quanto mais tempo, maior a economia. Sem fidelidade: cancele quando quiser.</p></div>
+    <div style="text-align:center"><div class="toggle" id="tgl" role="tablist" aria-label="Período"><span class="pillbg" id="tglbg"></span><button data-p="mensal" role="tab">Mensal</button><button data-p="semestral" role="tab">Semestral<em>-18%</em></button><button data-p="anual" class="on" role="tab">Anual<em>-37%</em></button></div></div>
+    <div class="pl-g">
+      <div class="price rv">
+        <span class="tag" id="pTag">MELHOR VALOR</span>
+        <h3 id="pNm">Plano anual</h3>
+        <div class="amt"><small>R$</small><b id="pV">62</b><span>,00/mês</span></div>
+        <div class="per" id="pPer">R$ 744,00 por ano · cartão em até 12x ou Pix</div>
+        <span class="save" id="pSave">Economize R$ 432,00 por ano</span>
+        <a class="btn light mag" id="pGo" href="https://claude.ai/artifact/TSmohMUxJzwYL73WdZu66K?plano=anual">Assinar plano anual<svg><use href="#i-arrow"/></svg></a>
+        <div class="guar"><svg><use href="#i-shield"/></svg><span><b>7 dias para desistir.</b> Comprou pela internet, pode se arrepender em até 7 dias e receber o valor de volta (Código de Defesa do Consumidor).</span></div>
+        <div class="pays"><span>Pix</span><span>Cartão de crédito</span><span id="pBol">Boleto</span><span>Ambiente seguro</span></div>
+      </div>
+      <div class="incl rv">
+        <h4>Todos os planos incluem</h4>
+        <ul id="incl"></ul>
+        <table class="cmp" aria-label="Comparação dos planos">
+          <thead><tr><th>Plano</th><th>Por mês</th><th>Cobrança</th><th>Economia</th></tr></thead>
+          <tbody>
+            <tr data-r="mensal"><td>Mensal</td><td><b>R$ 98</b></td><td>todo mês</td><td>—</td></tr>
+            <tr data-r="semestral"><td>Semestral</td><td><b>R$ 80</b></td><td>R$ 480 / 6 meses</td><td>R$ 108</td></tr>
+            <tr data-r="anual" class="hl"><td>Anual</td><td><b>R$ 62</b></td><td>R$ 744 / ano</td><td>R$ 432</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="other">
+      <div class="oc rv"><small>PRO · CONSULTÓRIO DO NUMERÓLOGO</small><h3>Licença profissional</h3><p>Para numerólogos que atendem clientes: você atende, entrega o estudo com a sua marca, cobra e chama o cliente de volta no momento certo.</p>
+        <ul><li>Agenda com lembrete pelo WhatsApp</li><li>Ficha do cliente com anotações e histórico</li><li>Estudo em PDF com nome, logo e contato</li><li>Cobrança com Pix e retorno pelos ciclos</li></ul>
+        <a class="btn line" href="https://wa.me/?text=Ol%C3%A1%21%20Sou%20numer%C3%B3logo%28a%29%20e%20quero%20saber%20o%20valor%20da%20licen%C3%A7a%20profissional%20do%20AZOVAH%20%28Consult%C3%B3rio%29.">Consultar valores<svg><use href="#i-arrow"/></svg></a></div>
+      <div class="oc rv"><small>COM NUMERÓLOGO</small><h3>Atendimentos personalizados</h3><p>Mapa completo, sessão terapêutica cabalística ou acompanhamento anual, do jeito que o seu momento pede.</p>
+        <ul><li>Mapa cabalístico completo com 3 versões de assinatura</li><li>Sessão de 1 a 2 horas, com inserções em tempo real</li><li>Acompanhamento anual: 12 sessões, uma por mês</li></ul>
+        <a class="btn line" href="https://wa.me/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20AZOVAH%20e%20quero%20saber%20sobre%20os%20atendimentos%20personalizados.">Falar no WhatsApp<svg><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq">
+  <div class="wrap faq">
+    <div class="sec-h rv" style="margin:0"><span class="eyebrow">Dúvidas frequentes</span><h2>Perguntas e respostas</h2><p class="lead">Não achou a sua? Chame no WhatsApp: respondemos rápido.</p><a class="btn line" style="align-self:flex-start;margin-top:10px" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20AZOVAH.">Perguntar no WhatsApp<svg><use href="#i-arrow"/></svg></a></div>
+    <div id="qas"></div>
+  </div>
+</section>
+
+<!-- ============ FINAL ============ -->
+<section>
+  <div class="wrap">
+    <div class="final rv">
+      <div class="net" aria-hidden="true" style="position:absolute;inset:0;z-index:-1;opacity:.12"></div>
+      <span class="eyebrow" style="color:var(--pk2)">Comece hoje</span>
+      <h2 style="margin-top:12px">Seu primeiro mapa fica pronto em minutos.</h2>
+      <p class="lead">Assine, entre e faça quantos mapas quiser: de você, da família, dos clientes e das empresas.</p>
+      <div class="ctas"><a class="btn light mag" href="#planos">Quero assinar<svg><use href="#i-arrow"/></svg></a><a class="btn ghost" href="https://wa.me/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20AZOVAH.">Falar no WhatsApp</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap ft">
+    <div><img src="assets/logo_branca.webp" alt="AZOVAH Numerologia" width="160" height="38"><div>Numerologia cabalística e arcanos · 7 idiomas</div><div style="margin-top:6px">© <span id="yr">2026</span> AZOVAH. Todos os direitos reservados.</div></div>
+    <div class="fl-l"><a href="#modulos">Módulos</a><a href="#planos">Planos</a><a href="#faq">Dúvidas</a><a href="https://claude.ai/artifact/J3NnbEYq72nfPMbNUuZwGD">Entrar no sistema</a></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20AZOVAH." aria-label="Falar no WhatsApp"><span class="pulse"></span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.6-1.4 1.2-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg></a>
+<button class="top" id="toTop" aria-label="Voltar ao topo"><svg class="ring" viewBox="0 0 46 46"><circle cx="23" cy="23" r="21" fill="none" stroke="#f4dbe5" stroke-width="2.5"/><circle id="topRing" cx="23" cy="23" r="21" fill="none" stroke="#c2185b" stroke-width="2.5" stroke-dasharray="132" stroke-dashoffset="132" stroke-linecap="round"/></svg><svg class="ar"><use href="#i-up"/></svg></button>
+<div class="mbar" id="mbar"><div><small>Todos os módulos</small><b>a partir de R$ 62/mês</b></div><a class="btn" href="#planos">Assinar</a></div>
+
+<script src="assets/engine.js"></script>
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const N=window.Numerologia;
+const red=n=>{while(n>9&&n!==11&&n!==22)n=String(n).split('').reduce((a,b)=>a+ +b,0);return n};
+const red9=n=>{while(n>9)n=String(n).split('').reduce((a,b)=>a+ +b,0);return n};
+
+/* ---------- hora, data e dia universal ---------- */
+const DIAS=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],MES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+function tick(){const d=new Date(),p=n=>String(n).padStart(2,'0');
+  $('#clk').innerHTML=`${p(d.getHours())}:${p(d.getMinutes())}<span class="sec">:${p(d.getSeconds())}</span>`;
+  const h=d.getHours();$('#greet').textContent=h<5?'Boa noite':h<12?'Bom dia':h<18?'Boa tarde':'Boa noite';
+  $('#dt').textContent=`${DIAS[d.getDay()]}, ${d.getDate()} ${MES[d.getMonth()]}`;
+  const du=red9(`${d.getDate()}${d.getMonth()+1}${d.getFullYear()}`.split('').reduce((a,b)=>a+ +b,0));$('#du').textContent=du;
+  $('#bcd').innerHTML=`<b>${p(d.getDate())}.${p(d.getMonth()+1)}.${d.getFullYear()}</b> → ${du}`;}
+tick();setInterval(tick,1000);$('#yr').textContent=new Date().getFullYear();
+
+/* ---------- código de barras vertical (gerado da marca) ---------- */
+(function(){const s='AZOVAH-NUMEROLOGIA-CABALISTICA-112233';let y=0,h='';let seed=0;for(const c of s){seed=(seed*31+c.charCodeAt(0))>>>0}
+  const rnd=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
+  while(y<600){const w=[1,1,2,3,1,4][Math.floor(rnd()*6)],g=[2,3,2,4][Math.floor(rnd()*4)];h+=`<rect x="0" y="${y}" width="34" height="${w}" fill="rgba(255,255,255,${(0.45+rnd()*0.45).toFixed(2)})"/>`;y+=w+g}
+  $('#bc').innerHTML=h})();
+
+/* ---------- clima (Open-Meteo, sem chave; cidade pelo fuso horário) ---------- */
+const TZ={"America/Sao_Paulo":["São Paulo",-23.55,-46.63],"America/Fortaleza":["Fortaleza",-3.72,-38.54],"America/Recife":["Recife",-8.05,-34.88],"America/Bahia":["Salvador",-12.97,-38.5],"America/Belem":["Belém",-1.46,-48.49],"America/Manaus":["Manaus",-3.12,-60.02],"America/Cuiaba":["Cuiabá",-15.6,-56.1],"America/Campo_Grande":["Campo Grande",-20.46,-54.62],"America/Porto_Velho":["Porto Velho",-8.76,-63.9],"America/Rio_Branco":["Rio Branco",-9.97,-67.81],"America/Boa_Vista":["Boa Vista",2.82,-60.67],"America/Maceio":["Maceió",-9.67,-35.74],"America/Araguaina":["Palmas",-10.18,-48.33],"America/Noronha":["Fernando de Noronha",-3.85,-32.42],"Europe/Lisbon":["Lisboa",38.72,-9.14],"America/New_York":["Nova York",40.71,-74.0],"America/Asuncion":["Assunção",-25.29,-57.65],"America/Argentina/Buenos_Aires":["Buenos Aires",-34.6,-58.38]};
+const WMO=c=>c===0?['Céu limpo','sun']:c<=2?['Parcialmente nublado','psun']:c===3?['Nublado','cloud']:c<=48?['Neblina','cloud']:c<=57?['Garoa','rain']:c<=67?['Chuva','rain']:c<=77?['Neve','cloud']:c<=82?['Pancadas de chuva','rain']:['Tempestade','storm'];
+const WI={sun:'<svg viewBox="0 0 24 24" fill="none" stroke="#ffd59a" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+ psun:'<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="3.5" stroke="#ffd59a"/><path d="M8 19h9a4 4 0 0 0 0-8 5 5 0 0 0-9.6 1.5A3.3 3.3 0 0 0 8 19z" stroke="#fff"/></svg>',
+ cloud:'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M7 18h10a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.4 2A3.5 3.5 0 0 0 7 18z"/></svg>',
+ rain:'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M7 15h10a4 4 0 0 0 0-8 5.5 5.5 0 0 0-10.5 1.8A3.2 3.2 0 0 0 7 15z"/><path d="M9 18l-1 3M13 18l-1 3M17 18l-1 3" stroke="#8fd3ff"/></svg>',
+ storm:'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M7 14h10a4 4 0 0 0 0-8 5.5 5.5 0 0 0-10.5 1.8A3.2 3.2 0 0 0 7 14z"/><path d="M12 14l-2 4h3l-2 4" stroke="#ffd59a"/></svg>'};
+async function clima(lat,lon,nome){
+  try{const ctl=new AbortController();setTimeout(()=>ctl.abort(),6000);
+    const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=4`,{signal:ctl.signal});
+    if(!r.ok)throw 0;const j=await r.json();const [lb,ic]=WMO(j.current.weather_code);
+    $('#wxi').innerHTML=WI[ic];$('#wxt').innerHTML=`${esc(nome)} <b>${Math.round(j.current.temperature_2m)}°</b>`;$('#wx').title=lb;$('#wxc').textContent=`${nome} · ${lb}`;
+    const DD=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+    $('#wxd').innerHTML=j.daily.time.map((t,i)=>{const [l,c]=WMO(j.daily.weather_code[i]);return `<div title="${l}">${i?DD[new Date(t+'T12:00').getDay()]:'Hoje'}${WI[c]}<b>${Math.round(j.daily.temperature_2m_max[i])}°</b>${Math.round(j.daily.temperature_2m_min[i])}°</div>`}).join('');
+    $('#wxw').hidden=false;
+  }catch(e){}
+}
+const tz=Intl.DateTimeFormat().resolvedOptions().timeZone,cid=TZ[tz]||TZ['America/Sao_Paulo'];clima(cid[1],cid[2],cid[0]);
+$('#wx').addEventListener('click',()=>{const o=$('#wxw').classList.toggle('open');$('#wx').setAttribute('aria-expanded',o)});
+document.addEventListener('click',e=>{if(!e.target.closest('#wxw'))$('#wxw').classList.remove('open')});
+$('#wxgeo').addEventListener('click',e=>{e.stopPropagation();if(!navigator.geolocation)return;e.target.textContent='Buscando…';
+  navigator.geolocation.getCurrentPosition(p=>{clima(p.coords.latitude,p.coords.longitude,'Sua região');e.target.textContent='Usando a sua localização'},()=>{e.target.textContent='Localização não permitida'},{timeout:8000})});
+
+/* ---------- módulos ---------- */
+const MODS=[
+ ['mapa','i-home','Central de Controle','O seu dia em uma tela: energia de hoje, mapa em estudo e próximos dias favoráveis.',['Ano, mês e dia pessoal','Arcano vibrando agora']],
+ ['mapa','i-user','Mapa pessoal completo','O retrato numerológico pela tabela cabalística, com todos os acentos.',['Expressão, Motivação, Impressão','Lições e dívidas cármicas']],
+ ['mapa','i-tri','Triângulo da vida','A pirâmide do nome mostra as fases da vida e as sequências que se repetem.',['Vida, pessoal, social e destino','Arcano atual e regente']],
+ ['mapa','i-grid','Matriz triângulo','Os 81 pares de arcanos nos quatro triângulos, em verde, amarelo e vermelho.',['Estrela nos 4 bons','Legenda TV · TP · TS · TD'],1],
+ ['mapa','i-doc','Gráfico e estudo em PDF','Gráfico de uma página e estudo completo, prontos para entregar.',['A4 e versão de celular','Com a sua marca (PRO)']],
+ ['ass','i-pen','Monte sua assinatura','Você escolhe os números e o arcano: o AZOVAH monta só as opções exatas.',['Planejador do arcano atual','5 opções por rodada']],
+ ['ass','i-leaf','Terapêutico','Uma conversa guiada sobre a vida da pessoa indica a assinatura ideal.',['Briefing humanizado','Números com o porquê']],
+ ['ass','i-back','Antes da numerologia','Como era a vida com o nome de nascimento e o que mudou com a nova assinatura.',['Fase por fase','O dia em que a vida mudou']],
+ ['ass','i-chat','Converse com o AZOVAH','Peça em linguagem natural: um nome mais curto, outro arcano, menos acentos.',['Chat estilo WhatsApp','Os números nunca mudam']],
+ ['vida','i-sun','Mentor AZOVAH','Um consultor que lembra da sua vida: o mapa, o briefing e as conversas.',['"Devo aceitar?" pelos ciclos','Mensagem do dia']],
+ ['vida','i-heart','Compatibilidade','Casal, sócios, pais e filhos, chefe e equipe, amizade.',['Nota de harmonia','Pontos de atrito']],
+ ['vida','i-cal','Calendário favorável','Os melhores dias do mês para as decisões importantes.',['Contrato, casamento, viagem','Direto na agenda']],
+ ['vida','i-book','Arcanos e Aprender','Os arcanos de 1 a 99 com o significado, mais um curso do zero.',['Mente, emoção e corpo','Trilha com testes']],
+ ['alem','i-build','Empresas','Razão social, nome fantasia e marca, com gráfico próprio.',['Triângulo da marca','Parcerias e sociedades']],
+ ['alem','i-pin','Endereços, placas e telefones','A vibração da casa, do carro e do celular comparada com o dono.',['Harmonia com o dono','Sugestões de números']],
+ ['alem','i-case','Consultório · PRO','Para numerólogos: agenda, ficha, estudo com a sua marca e cobrança.',['Lembrete de retorno','Pix na mensagem']],
+ ['alem','i-lock','Conta, senha e financeiro','Entrada só com a sua senha, plano, vencimento e histórico de pagamentos.',['Senha protegida','Aviso antes de vencer'],1]];
+$('#mods').innerHTML=MODS.map((m,i)=>`<article class="card rv${m[5]?' new':''}" data-g="${m[0]}"><span class="no">${m[5]?'NOVO':String(i+1).padStart(2,'0')}</span><span class="ic"><svg><use href="#${m[1]}"/></svg></span><h3>${m[2]}</h3><p>${m[3]}</p><div class="tg">${m[4].map(t=>`<span>${esc(t)}</span>`).join('')}</div></article>`).join('');
+$('#mq').innerHTML=[...MODS,...MODS].map(m=>`<span>${m[2]}</span>`).join('');
+$$('#tabs button').forEach(b=>b.onclick=()=>{$$('#tabs button').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-selected',x===b)});const g=b.dataset.g;$$('#mods .card').forEach(c=>{c.classList.toggle('hide',g!=='all'&&c.dataset.g!==g);if(!c.classList.contains('hide')){c.classList.remove('in');requestAnimationFrame(()=>c.classList.add('in'))}})});
+
+/* ---------- gráficos do "Na prática" ---------- */
+const ARC={1:'O Mago',2:'A Sacerdotisa',3:'A Imperatriz',4:'O Imperador',5:'O Papa',6:'Os Enamorados',7:'O Carro',8:'A Justiça',9:'O Eremita',10:'A Roda da Fortuna',11:'A Força',12:'O Enforcado',13:'A Morte',14:'A Temperança',15:'O Diabo',16:'A Torre',17:'A Estrela',18:'A Lua',19:'O Sol',20:'O Julgamento',21:'O Mundo',22:'O Louco'};
+const brD=iso=>iso?iso.split('-').reverse().join('/'):'—';
+function drawTri(R){
+  const L=R.triangulos.basico.linhas,seqs=R.triangulos.basico.sequencias||[],n=L[0].length,c=22,W=n*c+20,H=L.length*c*0.92+20,ix=R.triangulos.basico.arcanos&&R.triangulos.basico.arcanos.atual?R.triangulos.basico.arcanos.atual.indice:-1;
+  const inSeq=(r,k)=>seqs.some(s=>s.linha===r&&k>=s.inicio&&k<s.inicio+s.tamanho);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Triângulo da vida">`;
+  L.forEach((row,r)=>row.forEach((v,k)=>{const x=10+k*c+r*c/2,y=10+r*c*0.92,last=r===L.length-1,seq=inSeq(r,k),hl=r===0&&(k===ix||k===ix+1);
+    const fill=last?'#3a0716':seq?'#c2185b':hl?'#e8b04a':'#fbf2f6',tc=last||seq?'#fff':hl?'#3b2400':'#5b4752';
+    s+=`<g style="opacity:0;animation:fadeIn .4s ${(r*0.05).toFixed(2)}s forwards"><rect x="${x}" y="${y}" width="${c-3}" height="${c-3}" rx="6" fill="${fill}"/><text x="${x+(c-3)/2}" y="${y+(c-3)/2+4.5}" text-anchor="middle" font-family="Inter" font-weight="800" font-size="12" fill="${tc}">${v}</text></g>`}));
+  $('#tri').innerHTML=s+'</svg>';
+  $('#triInfo').textContent=`${n} letras · ${seqs.length?seqs.length+' sequência(s) negativa(s)':'sem sequências negativas'}`;
+}
+function drawAno(dataISO){
+  const [Y,M,D]=dataISO.split('-').map(Number),y0=new Date().getFullYear(),pts=[];
+  for(let i=0;i<9;i++){const a=y0+i;pts.push([a,red9(red9(D)+red9(M)+red9(String(a).split('').reduce((p,q)=>p+ +q,0)))])}
+  const W=560,H=210,pl=26,pb=28,x=i=>pl+i*(W-pl-14)/8,y=v=>14+(9-v)*(H-pb-14)/8;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Ano pessoal nos próximos 9 anos">`;
+  for(let v=1;v<=9;v+=2)s+=`<line x1="${pl}" x2="${W-10}" y1="${y(v)}" y2="${y(v)}" stroke="#f1e5ea"/><text x="${pl-10}" y="${y(v)+4}" font-size="11" fill="#9a7b88" text-anchor="end" font-family="Inter">${v}</text>`;
+  const d=pts.map((p,i)=>`${i?'L':'M'}${x(i)},${y(p[1])}`).join(' ');
+  s+=`<defs><linearGradient id="ga" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e0457f" stop-opacity=".28"/><stop offset="1" stop-color="#e0457f" stop-opacity="0"/></linearGradient></defs>`;
+  s+=`<path d="${d} L${x(8)},${H-pb} L${x(0)},${H-pb}Z" fill="url(#ga)"/><path d="${d}" fill="none" stroke="#c2185b" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.4s .2s forwards"/>`;
+  pts.forEach((p,i)=>{s+=`<g class="dot"><circle cx="${x(i)}" cy="${y(p[1])}" r="${i?5:8}" fill="${i?'#fff':'#c2185b'}" stroke="#c2185b" stroke-width="2.5"><title>${p[0]}: ano pessoal ${p[1]}</title></circle>${i?'':`<text x="${x(i)}" y="${y(p[1])-14}" text-anchor="middle" font-size="12" font-weight="800" fill="#7a1028" font-family="Inter">${p[1]} agora</text>`}<text x="${x(i)}" y="${H-8}" text-anchor="middle" font-size="11" fill="#9a7b88" font-family="Inter">${p[0]}</text></g>`});
+  $('#chAno').innerHTML=s+'</svg>';$('#anoInfo').textContent=`${y0}: ano pessoal ${pts[0][1]}`;
+}
+function drawCont(R){
+  const C=R.contagem,mx=Math.max(1,...Object.values(C)),W=560,H=210,bw=40,g=(W-30-9*bw)/8;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Quantidade de letras por número">`;
+  for(let v=1;v<=9;v++){const n=C[v]||0,h=Math.max(3,(n/mx)*(H-56)),x=15+(v-1)*(bw+g),y=H-26-h,zero=!n;
+    s+=`<rect x="${x}" y="${H-26-(H-56)}" width="${bw}" height="${H-56}" rx="10" fill="#faf2f6"/><rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="10" fill="${zero?'#f0a59c':'url(#gb)'}" style="transform-origin:${x}px ${H-26}px;transform:scaleY(0);animation:grow .9s ${(v*0.06).toFixed(2)}s cubic-bezier(.2,.8,.2,1) forwards"><title>Número ${v}: ${n} letra(s)${zero?' · lição cármica':''}</title></rect><text x="${x+bw/2}" y="${y-7}" text-anchor="middle" font-size="12" font-weight="800" fill="${zero?'#a3221a':'#7a1028'}" font-family="Inter">${zero?'lição':n}</text><text x="${x+bw/2}" y="${H-8}" text-anchor="middle" font-size="12" font-weight="700" fill="#9a7b88" font-family="Inter">${v}</text>`}
+  $('#chCont').innerHTML=s.replace('<svg','<svg')+`<defs><linearGradient id="gb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f06a9b"/><stop offset="1" stop-color="#8e1248"/></linearGradient></defs></svg>`;
+}
+function drawTl(R){
+  const A=R.triangulos.basico.arcanos;if(!A||!A.periodos)return;const P=A.periodos,ida=R.entrada.idadeExata,tot=P[P.length-1].ate,W=Math.max(900,P.length*64),H=118;
+  let s=`<svg viewBox="0 0 ${W} ${H}" style="min-width:${W}px" role="img" aria-label="Linha do tempo dos arcanos">`;
+  P.forEach((p,i)=>{const x=(p.de/tot)*W,w=((p.ate-p.de)/tot)*W-4,cur=A.atual&&p.indice===A.atual.indice;
+    s+=`<g><rect x="${x}" y="28" width="${w}" height="44" rx="12" fill="${cur?'#c2185b':i%2?'#f6e9ef':'#fbf2f6'}"><title>Arcano ${p.arcano}${ARC[p.arcano]?' · '+ARC[p.arcano]:''}: ${brD(p.inicio)} a ${brD(p.fim)}</title></rect><text x="${x+w/2}" y="56" text-anchor="middle" font-size="15" font-weight="800" fill="${cur?'#fff':'#7a1028'}" font-family="Inter">${p.arcano}</text><text x="${x+w/2}" y="92" text-anchor="middle" font-size="10.5" fill="#9a7b88" font-family="Inter">${Math.round(p.de)}a</text></g>`});
+  const xa=(ida/tot)*W;s+=`<line x1="${xa}" x2="${xa}" y1="14" y2="78" stroke="#3a0716" stroke-width="2" stroke-dasharray="3 3"/><text x="${xa}" y="10" text-anchor="middle" font-size="11" font-weight="800" fill="#3a0716" font-family="Inter">hoje · ${Math.floor(ida)} anos</text>`;
+  $('#chTl').innerHTML=s+'</svg>';$('#tlInfo').textContent=`${P.length} fases de ${(A.duracao).toFixed(1).replace('.',',')} anos`;
+}
+function render(nome,data){
+  let R;try{R=N.calcular(nome,data)}catch(e){return false}if(!R||!R.numeros)return false;const n=R.numeros;
+  $('#rE').textContent=n.expressao;$('#rM').textContent=n.motivacao;$('#rI').textContent=n.impressao;$('#rD').textContent=n.destino;$('#rY').textContent=n.anoPessoal;$('#flE').textContent=n.expressao;
+  const at=R.triangulos.basico.arcanos&&R.triangulos.basico.arcanos.atual;$('#rA').textContent=at?at.arcano:'—';
+  const ini=nome.trim().split(/\s+/).map(w=>w[0]).filter(Boolean);$('#wAv').textContent=(ini[0]+(ini.length>1?ini[ini.length-1]:'')).toUpperCase();$('#wNm').textContent=nome;$('#wSb').textContent=brD(data)+(nome==='Helena Cristina Duarte'?' · nome fictício':' · o seu cálculo');
+  $('#kp').innerHTML=[['EXP',n.expressao],['MOT',n.motivacao],['IMP',n.impressao],['DEST',n.destino],['MISS',n.missao]].map(([k,v])=>`<div><small>${k}</small><b>${v}</b></div>`).join('');
+  if(at){$('#arcN').textContent=at.arcano;$('#arcNm').textContent=ARC[at.arcano]||`Arcano ${at.arcano}`;$('#arcDt').textContent=`${brD(at.inicio)} a ${brD(at.fim)}`;const ida=R.entrada.idadeExata,pct=Math.max(0,Math.min(1,(ida-at.de)/(at.ate-at.de)));$('#arcRing').style.strokeDashoffset=201*(1-pct)}
+  const ida=R.entrada.idadeExata,seg=(L,id)=>{const tot=Math.max(90,...L.map(c=>c.ate||0));$(id).innerHTML=L.map(c=>{const ate=c.ate??tot,now=ida>=c.de&&ida<ate;return `<div class="${now?'now':''}" style="flex:${Math.max(6,ate-c.de)}" title="${c.de} a ${c.ate??'…'} anos"><b>${c.numero}</b><small>${c.de}–${c.ate??'+'}</small></div>`}).join('')};
+  seg(R.ciclos,'#cyc');seg(R.momentos,'#mom');
+  $('#lic').innerHTML=[...(R.licoes||[]).map(v=>`<span>lição <b>${v}</b></span>`),...(R.dividas||[]).map(v=>`<span>dívida <b>${v}</b></span>`),`<span>1º desafio <b>${R.desafios.primeiro}</b></span>`,`<span>2º desafio <b>${R.desafios.segundo}</b></span>`,`<span>principal <b>${R.desafios.principal}</b></span>`].join('');
+  const H=R.harmonia||{};$('#harm').innerHTML=[['vibra com',H.vibra],['atrai',H.atrai],['oposto',H.oposto],['passivo',H.passivo]].filter(x=>x[1]&&x[1].length).map(([t,v])=>`<span>${t} <b>${v.join(', ')}</b></span>`).join('');
+  drawTri(R);drawAno(data);drawCont(R);drawTl(R);return true;
+}
+const stl=document.createElement('style');stl.textContent='@keyframes fadeIn{to{opacity:1}}@keyframes draw{to{stroke-dashoffset:0}}@keyframes grow{to{transform:scaleY(1)}}';document.head.appendChild(stl);
+render('Helena Cristina Duarte','1988-09-21');
+$('#calc').addEventListener('submit',e=>{e.preventDefault();const nm=$('#cN').value.trim(),dt=$('#cD').value;$('#cErr').textContent='';
+  if(nm.split(/\s+/).length<2){$('#cErr').textContent='Digite o nome completo, com sobrenome.';$('#cN').focus();return}
+  if(!dt||+dt.slice(0,4)<1900||new Date(dt)>new Date()){$('#cErr').textContent='Informe uma data de nascimento válida.';$('#cD').focus();return}
+  const b=$('#cGo');b.disabled=true;b.firstChild.textContent='Calculando…';
+  setTimeout(()=>{if(!render(nm,dt))$('#cErr').textContent='Não consegui calcular esse nome. Confira as letras.';b.disabled=false;b.firstChild.textContent='Calcular';$$('.res b').forEach(x=>{x.animate([{transform:'scale(.6)',opacity:0},{transform:'scale(1)',opacity:1}],{duration:500,easing:'cubic-bezier(.2,.8,.2,1)'})})},380)});
+
+/* ---------- tour ---------- */
+$('#vtags').innerHTML=['Central de Controle','Mentor AZOVAH','Análise do nome','Triângulo invertido','Matriz triângulo','Gráfico com triângulo','Monte sua assinatura','Terapêutico','Compatibilidade','Calendário favorável','Consultório PRO','Antes da numerologia','Análise da assinatura','Os arcanos','Empresas','Endereços e placas','Meus mapas','Aprender','Seu perfil'].map((t,i)=>`<span><b>${String(i+1).padStart(2,'0')}</b>${t}</span>`).join('');
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.dataset.user){v.preload='auto';v.play().catch(()=>{})}}else v.pause()}),{threshold:.25});
+['#vD','#vM'].forEach(s=>vio.observe($(s)));
+$$('.play').forEach(b=>b.onclick=()=>{const v=$('#'+b.dataset.v),m=$('#vM');if(v.paused){v.play();m.play();v.dataset.user='';b.innerHTML='<svg><use href="#i-pause"/></svg><span>Pausar</span>'}else{v.pause();m.pause();v.dataset.user='1';b.innerHTML='<svg><use href="#i-play"/></svg><span>Continuar</span>'}});
+
+/* ---------- depoimentos (ilustrativos) ---------- */
+const DEP=[['RA','Renata Albuquerque','Troquei a assinatura há 3 meses seguindo o mapa e fui promovida ontem. Não acredito até agora.'],['CP','Carlos Henrique Prado','Abri a empresa na data que o calendário indicou. Primeiro mês já fechei no azul.'],['JR','Juliana Martins Rocha','O Mentor me perguntou "você está decidindo por desejo ou por medo?" e eu travei. Era medo.'],['PL','Patrícia Souza Lima','Fiz o mapa da minha filha e entendi tanta coisa sobre ela. A gente conversou como nunca.'],['MT','Marcos Vinícius Teles','Usei a compatibilidade com meu sócio. Mostrou exatamente onde a gente brigava.'],['AG','Aline Ferraz Gomes','Assinatura nova no cartão, no e-mail e no WhatsApp. Me sinto mais firme.'],['TC','Thiago Moreira Campos','Numeróloga aqui: agenda, ficha, estudo com a minha marca e cobrança num lugar só.'],['GD','Gabriela Nunes Duarte','Meu ano pessoal 9 explicou por que tanta coisa estava acabando. Deixei ir. Que paz.'],['BR','Beatriz Campos Rocha','Montei minha assinatura com os números que eu queria e o sistema achou cinco opções.'],['IN','Isabela Cardoso Neves','A tela de arcanos é uma aula. Aprendi mais aqui em uma semana do que em dois cursos.']];
+const CL=['#c2185b','#7a1028','#a86d08','#1f7a4f','#5b2a86'];
+const depH=DEP.map((d,i)=>`<article class="msg"><header><span class="av" style="background:${CL[i%5]}">${d[0]}</span><span><b>${d[1]}</b><small>online</small></span><span class="il">ilustração</span></header><p>${esc(d[2])}</p></article>`).join('');
+$('#dep').innerHTML=depH+depH.replace(/<article/g,'<article aria-hidden="true"');
+
+/* ---------- planos ---------- */
+const PL={mensal:{nm:'Plano mensal',v:98,per:'Cobrado todo mês · cartão de crédito ou Pix',save:'Cancele quando quiser',tag:'MAIS FLEXÍVEL',bol:false},semestral:{nm:'Plano semestral',v:80,per:'R$ 480,00 a cada 6 meses · cartão em até 6x, Pix ou boleto',save:'Economize R$ 108,00 no semestre',tag:'18% OFF',bol:true},anual:{nm:'Plano anual',v:62,per:'R$ 744,00 por ano · cartão em até 12x, Pix ou boleto',save:'Economize R$ 432,00 por ano',tag:'MELHOR VALOR · 37% OFF',bol:true}};
+function pickPlan(k,anim){const p=PL[k];$$('#tgl button').forEach(b=>b.classList.toggle('on',b.dataset.p===k));const on=$(`#tgl button[data-p="${k}"]`),bg=$('#tglbg');bg.style.left=on.offsetLeft+'px';bg.style.width=on.offsetWidth+'px';
+  $('#pNm').textContent=p.nm;$('#pPer').textContent=p.per;$('#pSave').textContent=p.save;$('#pTag').textContent=p.tag;$('#pBol').style.display=p.bol?'':'none';
+  $('#pGo').href='https://claude.ai/artifact/TSmohMUxJzwYL73WdZu66K?plano='+k;$('#pGo').firstChild.textContent='Assinar '+p.nm.toLowerCase();
+  $$('.cmp tr[data-r]').forEach(r=>r.classList.toggle('hl',r.dataset.r===k));
+  const el=$('#pV'),from=+el.textContent||p.v;if(!anim||RM){el.textContent=p.v;return}const t0=performance.now();const st=t=>{const q=Math.min(1,(t-t0)/450),e=1-Math.pow(1-q,3);el.textContent=Math.round(from+(p.v-from)*e);if(q<1)requestAnimationFrame(st)};requestAnimationFrame(st)}
+$$('#tgl button').forEach(b=>b.onclick=()=>pickPlan(b.dataset.p,true));
+addEventListener('load',()=>pickPlan('anual'));addEventListener('resize',()=>pickPlan($('#tgl .on').dataset.p));
+$('#incl').innerHTML=['Mapa completo e estudo em PDF','Triângulo da vida e arcanos','Matriz triângulo em cores','Monte sua assinatura','Terapêutico e Antes da numerologia','Mentor com memória','Compatibilidade','Calendário favorável','Empresas, endereços, placas e telefones','Arcanos de 1 a 99 e Aprender','Mapas ilimitados, 7 idiomas','Novos módulos sem custo extra'].map(t=>`<li><svg><use href="#i-check"/></svg>${t}</li>`).join('');
+
+/* ---------- faq ---------- */
+const FAQ=[['Preciso instalar algum programa?','Não. O AZOVAH é 100% online: funciona no navegador do computador, tablet ou celular.'],['Existe limite de mapas?','Não. Faça quantos mapas quiser, de clientes, familiares e empresas, e exporte todos em PDF.'],['Tenho contrato de fidelidade?','Não. Assine e cancele quando quiser, sem multa. E nos primeiros 7 dias você pode desistir e receber o valor de volta.'],['Quais formas de pagamento?','Pix e cartão de crédito em todos os planos. No semestral também em até 6x ou boleto, e no anual em até 12x ou boleto.'],['Como recebo o acesso?','Logo após a confirmação do pagamento você recebe o acesso por e-mail. No primeiro acesso, cadastra a sua senha.'],['Em quais idiomas funciona?','Português, inglês, espanhol, francês, russo, chinês e árabe. Você troca a qualquer momento pelo seletor no topo.'],['Serve para quem está começando?','Sim. O módulo Aprender ensina do zero, e cada número do mapa vem com a explicação pronta.'],['Posso colocar a minha marca nos PDFs?','Sim, na licença profissional: capa, marca d’água e dados do numerólogo responsável.']];
+$('#qas').innerHTML=FAQ.map((q,i)=>`<div class="qa rv${i?'':' open'}"><button aria-expanded="${!i}" aria-controls="qa${i}">${q[0]}<i><svg style="width:16px;height:16px"><use href="#i-plus"/></svg></i></button><div class="a" id="qa${i}"><div><p>${q[1]}</p></div></div></div>`).join('');
+$$('.qa button').forEach(b=>b.onclick=()=>{const q=b.parentElement,o=!q.classList.contains('open');$$('.qa').forEach(x=>{x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')});if(o){q.classList.add('open');b.setAttribute('aria-expanded','true')}});
+
+/* ---------- interações gerais ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+$$('.rv').forEach((el,i)=>{el.style.transitionDelay=((i%4)*70)+'ms';io.observe(el)});
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,to=+el.dataset.n,t0=performance.now();cio.unobserve(el);if(RM){el.textContent=to;return}const st=t=>{const q=Math.min(1,(t-t0)/1300),v=Math.round(to*(1-Math.pow(1-q,4)));el.textContent=v;if(q<1)requestAnimationFrame(st)};requestAnimationFrame(st)}),{threshold:.6});
+$$('[data-n]').forEach(el=>cio.observe(el));
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}},{passive:true});
+const hero=$('#hero'),spot=$('#spot'),scr=$('#scr');
+hero.addEventListener('pointermove',e=>{if(RM)return;const r=hero.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;spot.style.setProperty('--sx',px*100+'%');spot.style.setProperty('--sy',py*100+'%');scr.style.setProperty('--ry',((px-.5)*6).toFixed(2)+'deg');scr.style.setProperty('--rx',(8-(py-.5)*6).toFixed(2)+'deg')},{passive:true});
+$$('.mag').forEach(b=>{b.addEventListener('pointermove',e=>{if(RM||e.pointerType!=='mouse')return;const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.2}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
+const nav=$('#nav'),prog=$('#prog'),top=$('#toTop'),ring=$('#topRing'),mbar=$('#mbar'),secs=['modulos','numeros','tour','planos','faq'].map(id=>document.getElementById(id));
+function onScroll(){const y=scrollY,h=document.documentElement.scrollHeight-innerHeight,p=h>0?y/h:0;prog.style.width=(p*100)+'%';nav.classList.toggle('solid',y>30);top.classList.toggle('show',y>900);ring.style.strokeDashoffset=132*(1-p);
+  const pl=$('#planos').getBoundingClientRect();mbar.classList.toggle('show',y>innerHeight*0.9&&!(pl.top<innerHeight&&pl.bottom>0));
+  let cur='';secs.forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*0.4)cur=s.id});$$('#menu a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+top.onclick=()=>scrollTo({top:0,behavior:RM?'auto':'smooth'});
+$('#burger').onclick=()=>{const o=nav.classList.toggle('open');$('#burger').setAttribute('aria-expanded',o)};
+$$('#menu a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+})();
+</script>
+</body>
+</html>

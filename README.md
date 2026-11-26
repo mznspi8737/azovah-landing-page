@@ -48,3 +48,16 @@ Links dos planos: `checkout/index.html?plano=mensal|semestral|anual`. Sem servid
 ## Licença
 
 Código proprietário. Todos os direitos reservados.
+
+## Nova landing page (site/) · 26/11/2026
+
+`site/index.html` é a versão nova, pronta para publicar no servidor: copie a pasta `site/` inteira (com `assets/`).
+
+- Topo com hora ao vivo, data, dia universal e previsão do tempo (Open-Meteo, sem chave; cidade pelo fuso horário do visitante e botão "Usar minha localização").
+- Código de barras vertical no canto do topo, com a data de hoje reduzida.
+- "Experimente agora": calcula Expressão, Motivação, Impressão, Destino, arcano atual e ano pessoal no próprio navegador (`assets/engine.js`, o mesmo motor do sistema).
+- Gráficos ao vivo: triângulo da vida, números principais, ciclos, momentos, lições, ano pessoal dos próximos 9 anos, força de cada número e linha do tempo dos arcanos.
+- Tour novo em vídeo (`tour5_d.mp4`, `tour5_m.mp4`) com o visual atual e a Matriz triângulo.
+- 17 módulos com filtro, Monte sua assinatura com opções reais, Matriz, depoimentos ilustrativos, planos com seletor, garantia de 7 dias (CDC), FAQ, botão de WhatsApp, barra fixa no celular e voltar ao topo.
+
+`Main.dc.html` continua sendo a versão anterior, do editor de design.
