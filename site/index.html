@@ -264,6 +264,12 @@ h2{font:700 clamp(30px,4.2vw,50px)/1.08 var(--serif)}
 .opt span i{font-style:normal;padding:3px 8px;border-radius:8px;background:#f6eef2;font:700 11.5px var(--sans);color:var(--wine)}
 .opt.ok span i:last-child{background:#e6f5ec;color:var(--ok)}
 
+.ba{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+.ba-o{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:0 4px}
+.ba-o s{font:600 15px var(--serif);color:rgba(255,255,255,.55);text-decoration-color:rgba(255,143,182,.8)}
+.ba-o em{font-style:normal;font:600 12px var(--sans);color:#ffb3c9}
+.ba .opt{margin-top:6px}
+.opt span i:nth-child(2){background:#e6f5ec;color:var(--ok)}
 /* matriz */
 .mx{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
 .mx span{padding:9px 0;border-radius:10px;text-align:center;font:800 14px var(--mono);border:1px solid}
@@ -484,7 +490,7 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:#
 
     <div class="hero-g">
       <div>
-        <a class="badge" href="#matriz"><span>NOVO</span>Matriz triângulo: os 81 arcanos em cores</a>
+        <a class="badge" href="#matriz"><span>NOVO</span>Matriz triângulo: os arcanos do 11 ao 99 em cores</a>
         <h1>O sistema mais completo de <em>numerologia cabalística</em> e arcanos.</h1>
         <p class="sub">Mapa, triângulo da vida, matriz de arcanos, assinatura ideal, Mentor e calendário favorável. Tudo calculado pela tabela cabalística e explicado número por número, em 7 idiomas.</p>
         <div class="ctas">
@@ -537,7 +543,7 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:#
     <div class="stats">
       <div class="st rv"><b data-n="17">0</b><span>módulos em qualquer plano</span></div>
       <div class="st rv"><b data-n="99">0</b><span>arcanos com texto explicativo</span></div>
-      <div class="st rv"><b data-n="81">0</b><span>combinações na Matriz triângulo</span></div>
+      <div class="st rv"><b data-n="4">0</b><span>triângulos por nome: vida, pessoal, social e destino</span></div>
       <div class="st rv"><b data-n="7">0</b><span>idiomas, com troca na hora</span></div>
       <div class="st rv"><b data-n="5">0</b><span>opções exatas de assinatura por rodada</span></div>
     </div>
@@ -623,13 +629,13 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:#
       </div>
     </div>
     <div class="sig-card rv">
-      <small>PEDIDO</small>
-      <div class="eq"><div><b>6</b><span>EXPRESSÃO</span></div><em>=</em><div><b>3</b><span>MOTIVAÇÃO</span></div><em>+</em><div><b>3</b><span>IMPRESSÃO</span></div></div>
-      <small>OPÇÕES QUE FECHAM EXATAMENTE</small>
-      <div class="opt ok"><b>Helénâ Cristinnâ D.</b><span><i>EXP 6</i><i>arcano 32</i><i>sem dívidas</i></span></div>
-      <div class="opt ok"><b>Helênna Cristínâ D.</b><span><i>EXP 6</i><i>arcano 13</i><i>sem dívidas</i></span></div>
-      <div class="opt ok"><b>Hellena Cristìnnã Duarte</b><span><i>EXP 6</i><i>arcano 21</i><i>sem dívidas</i></span></div>
-      <p style="margin:14px 0 0;font-size:12.5px;color:rgba(255,255,255,.6)">Opções reais geradas pelo sistema para o nome fictício Helena Cristina Duarte, sem sequências negativas.</p>
+      <small>ANTES → DEPOIS · CÁLCULO EXATO</small>
+      <div class="ba">
+        <div class="ba-r"><div class="ba-o"><s>Mariana Lopes</s><em>arcano 15 pesado · sequência 666 · dívidas 14 e 16</em></div><div class="opt ok"><b>Mariãna Lopês</b><span><i>EXP 6</i><i>arcano 45</i><i>2 acentos</i></span></div></div>
+        <div class="ba-r"><div class="ba-o"><s>Juliana Prado</s><em>dívida cármica 13</em></div><div class="opt ok"><b>Juliana Pradô</b><span><i>EXP 11</i><i>arcano 11</i><i>1 acento</i></span></div></div>
+        <div class="ba-r"><div class="ba-o"><s>Beatriz Campos</s><em>sequência 222</em></div><div class="opt ok"><b>Beãtriz Campos</b><span><i>EXP 6</i><i>arcano 21</i><i>1 acento</i></span></div></div>
+      </div>
+      <p style="margin:14px 0 0;font-size:12.5px;color:rgba(255,255,255,.6)">Exemplos reais do motor de cálculo com nomes e datas fictícios. Todas as opções: arcano atual bom, sem sequências negativas e sem dívidas cármicas.</p>
     </div>
   </div>
 
@@ -641,7 +647,7 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:#
     </div>
     <div class="rv">
       <span class="eyebrow">Novo · Matriz triângulo</span>
-      <h2>Os 81 arcanos do nome, em cores.</h2>
+      <h2>Os arcanos do 11 ao 99, em cores.</h2>
       <p class="lead">Digite o nome e a data: a matriz mostra cada par de números nos quatro triângulos (vida, pessoal, social e destino). Verde é bom, amarelo é razoável, vermelho é pesado. A estrela aparece quando os quatro são bons.</p>
       <div class="steps">
         <div class="step"><i><svg style="width:18px;height:18px"><use href="#i-grid"/></svg></i><span><b>Legenda clara</b><span>Siglas TV, TP, TS e TD explicadas na própria tela.</span></span></div>
@@ -786,7 +792,7 @@ const MODS=[
  ['mapa','i-home','Central de Controle','O seu dia em uma tela: energia de hoje, mapa em estudo e próximos dias favoráveis.',['Ano, mês e dia pessoal','Arcano vibrando agora']],
  ['mapa','i-user','Mapa pessoal completo','O retrato numerológico pela tabela cabalística, com todos os acentos.',['Expressão, Motivação, Impressão','Lições e dívidas cármicas']],
  ['mapa','i-tri','Triângulo da vida','A pirâmide do nome mostra as fases da vida e as sequências que se repetem.',['Vida, pessoal, social e destino','Arcano atual e regente']],
- ['mapa','i-grid','Matriz triângulo','Os 81 pares de arcanos nos quatro triângulos, em verde, amarelo e vermelho.',['Estrela nos 4 bons','Legenda TV · TP · TS · TD'],1],
+ ['mapa','i-grid','Matriz triângulo','Os arcanos do 11 ao 99 nos quatro triângulos, em verde, amarelo e vermelho.',['Estrela nos 4 bons','Legenda TV · TP · TS · TD'],1],
  ['mapa','i-doc','Gráfico e estudo em PDF','Gráfico de uma página e estudo completo, prontos para entregar.',['A4 e versão de celular','Com a sua marca (PRO)']],
  ['ass','i-pen','Monte sua assinatura','Você escolhe os números e o arcano: o AZOVAH monta só as opções exatas.',['Planejador do arcano atual','5 opções por rodada']],
  ['ass','i-leaf','Terapêutico','Uma conversa guiada sobre a vida da pessoa indica a assinatura ideal.',['Briefing humanizado','Números com o porquê']],
