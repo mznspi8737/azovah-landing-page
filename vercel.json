@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/", "destination": "/blink/", "permanent": false },
+    { "source": "/bio", "destination": "/blink/", "permanent": false },
+    { "source": "/ig", "destination": "/blink/", "permanent": false },
+    { "source": "/links", "destination": "/blink/", "permanent": false },
+    { "source": "/lp", "destination": "/site/", "permanent": false }
+  ],
+  "headers": [
+    { "source": "/(.*)\\.(mp4|webp|jpg|png|js)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] }
+  ]
+}

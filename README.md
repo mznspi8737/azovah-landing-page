@@ -70,3 +70,12 @@ Código proprietário. Todos os direitos reservados.
   - Apache/hospedagem comum: `deploy/.htaccess` na raiz do site
   - Sem acesso à configuração do servidor: copie `deploy/bio/` para a raiz (vira azovah.com/bio, que redireciona).
 - Landing page: conteúdo de `site/` em **azovah.com/lp/**.
+
+## Publicar na Vercel (26/11/2026)
+
+1. vercel.com › Add New › Project › importe `mznspi8737/azovah-landing-page`.
+2. Framework Preset: **Other**. Build Command e Output Directory: deixe em branco. Deploy.
+3. Endereços (o `vercel.json` cuida dos atalhos):
+   - `/` e `/bio` → página de links (blink)
+   - `/lp` → landing page
+4. Domínio próprio: Project › Settings › Domains › adicione `azovah.com` e siga o DNS indicado.
