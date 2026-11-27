@@ -222,6 +222,7 @@ def c5(t):  # Mapa Numerológico
     return finish(im.convert('RGB'))
 
 ITENS = [('Destino e Missão', 'O caminho que você veio cumprir'), ('Bloqueios e como superá-los', 'Sequências e lições do seu nome'), ('Ciclos e dívidas cármicas', 'O que se repete e por quê'), ('Arcano atual e próximos anos', 'A energia que rege a sua fase'), ('Assinatura com arcanos favoráveis', 'Equilíbrio direto no seu nome')]
+ITEM_T = [.5 + i * 1.6 for i in range(5)]
 def c6(t):  # cartão checklist (claro)
     im = kenburns(BG_LILAC, t, 9, 1.0, 1.06).convert('RGBA')
     a = eo(t / .6); cw, ch = 860, 640; x0, y0 = (W - cw) / 2, 300 + 30 * (1 - a)
@@ -230,9 +231,9 @@ def c6(t):  # cartão checklist (claro)
     card = card.filter(ImageFilter.GaussianBlur(24)); d = ImageDraw.Draw(card)
     d.rounded_rectangle([x0, y0, x0 + cw, y0 + ch], 44, fill=(255, 255, 255, int(205 * a)), outline=(255, 255, 255, int(255 * a)), width=2)
     d.text((W / 2, y0 + 70), 'No seu mapa AZOVAH:', font=F('Corm600i.ttf', 60), fill=(80, 50, 120, int(255 * a)), anchor='mm')
-    step = 1.6; cur = min(len(ITENS) - 1, int(max(0, t - .5) / step))
+    cur = max([0] + [i for i, x in enumerate(ITEM_T) if t >= x])
     for i, (tit, _) in enumerate(ITENS):
-        p = eo((t - .5 - i * step) / .5)
+        p = eo((t - ITEM_T[i]) / .5)
         if p <= 0: continue
         y = y0 + 150 + i * 96
         d.ellipse([x0 + 50, y - 26, x0 + 102, y + 26], fill=(214, 168, 72, int(255 * p)))
@@ -240,8 +241,9 @@ def c6(t):  # cartão checklist (claro)
         d.text((x0 + 130 + 20 * (1 - p), y), tit, font=INTER('SemiBold', 38), fill=(58, 36, 90, int(255 * p)), anchor='lm')
     im.alpha_composite(card)
     # texto grande abaixo, troca a cada item
-    k = cur; lt = (t - .5 - k * step)
-    if t > .5:
+    k = cur; lt = t - ITEM_T[k]
+    if t > ITEM_T[0]:
+        step = ITEM_T[k + 1] - ITEM_T[k] if k < len(ITENS) - 1 else 99
         fa = eo(lt / .5) * (1 - eo((lt - step + .35) / .35)) if k < len(ITENS) - 1 else eo(lt / .5)
         tit, sub = ITENS[k]
         words = tit.split(' '); l1, l2 = (' '.join(words[:2]), ' '.join(words[2:])) if len(words) > 3 else (tit, '')
