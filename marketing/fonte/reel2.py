@@ -39,7 +39,7 @@ CAP = {
  's6': [None, None, "Troca o arcano 15, mais pesado, pelo 45, muito mais favorável."],
 }
 ORDER = ['s1', 's2', 's3', 's4', 's6', 's7', 's5', 's8']
-VIN = 5.0
+VIN = 4.5
 LEAD, GAP, TAIL = 0.45, 0.28, 0.7
 SR = 24000
 OUT = '/home/claude/reels/v2'; os.makedirs(OUT, exist_ok=True)
@@ -122,9 +122,8 @@ def s2(t):
     bw, gap = 146, 16; x0 = (W - (6 * bw + 5 * gap)) / 2
     span = c[1][1] - c[1][0]
     for i, (l, v) in enumerate(LET):
-        st = c[1][0] + span * (0.2 + i * 0.13)
+        st = META[s]['let'][i] - .15
         p = eb((t - st) / .45)
-        if t < c[1][0]: p = eb((t - c[0][0] - .6 - i * .1) / .45) * 0  # só aparecem no cue 1
         if p <= 0: continue
         x = x0 + i * (bw + gap); y = 600 + 60 * (1 - p)
         box = Image.new('RGBA', (bw, 230)); bd = ImageDraw.Draw(box)
@@ -153,13 +152,13 @@ def s3(t):
         ew = d.textlength('H', font=f); e2 = d.textlength('Hé', font=f); x1 = (W - w) / 2 + ew; x2 = (W - w) / 2 + e2
         q = eo(P(s, t, 1, .4) - .8)
         if q > 0: d.rounded_rectangle([x1 - 8, 830, x1 - 8 + (x2 - x1 + 16) * q, 842], 6, fill=(232, 176, 74))
-    q = eo(P(s, t, 1, .5) - 1.2)
+    q = eo((t - META[s]['sete'] + .1) / .5)
     if q > 0: ctext(d, 900, 'É = 5 + 2 = 7', inter(68, 'Black'), (232, 176, 74), q)
     n = eo(P(s, t, 2, .7))
     if n > 0:
         cx, cy, Rr = W / 2, 1210, 150
         d.ellipse([cx - Rr, cy - Rr, cx + Rr, cy + Rr], fill=(232, 176, 74, int(255 * n)))
-        d.text((cx, cy - 4), '8' if n > .5 else '6', font=inter(170, 'Black'), fill=(59, 36, 0, int(255 * n)), anchor='mm')
+        d.text((cx, cy - 4), '8' if t > META[s]['oito'] - .05 else '6', font=inter(170, 'Black'), fill=(59, 36, 0, int(255 * n)), anchor='mm')
     return im
 
 def s4(t):
@@ -171,7 +170,7 @@ def s4(t):
             p = eb((t - c[0][0] - .5 - r * .35 - k * .05) / .4)
             if p <= 0: continue
             x = W / 2 - (len(row) * cs + (len(row) - 1) * gap) / 2 + k * (cs + gap); y = 520 + r * (cs + 8)
-            seq = r == 3 and t > c[1][0] + 1.2
+            seq = r == 3 and t > META[s]['hl'] + .3
             fill = (194, 24, 91, 255) if seq else (255, 255, 255, int(235 * min(1, p)))
             tc = (255, 255, 255) if seq else (58, 7, 22)
             sz = cs * min(1, p)
@@ -182,7 +181,7 @@ def s4(t):
 def s6(t):
     s = 's6'; im = frame(t + 70, 's6'); d = AD(im, 'RGBA'); logo(d)
     ctext(d, 380, 'Dá pra equilibrar', lora(96), (255, 255, 255), eo(P(s, t, 0, .4)))
-    a = eo(P(s, t, 1, .5)); b = eo(P(s, t, 1, .5) - 2.4)
+    a = eo(P(s, t, 1, .5)); b = eo((t - META[s]['vira'] + .1) / .5)
     f = lora(104)
     if a > 0:
         ctext(d, 560, 'Mariana Lopes', f, (200, 235, 220), a * (1 - .55 * b))
@@ -196,12 +195,12 @@ def s6(t):
     q = eb(P(s, t, 2, .6))
     if q > 0:
         for cx, num, lab, col, tc in ((W / 2 - 230, '15', 'mais pesado', (90, 110, 104), (230, 240, 236)), (W / 2 + 230, '45', 'favorável', (120, 255, 190), (4, 40, 26))):
-            Rr = 120 * min(1, q) if num == '15' else 120 * min(1, eb(P(s, t, 2, .6) - 1.3))
+            Rr = 120 * min(1, q) if num == '15' else 120 * min(1, max(0, eb((t - META[s]['pelo'] - .2) / .6)))
             if Rr <= 0: continue
             d.ellipse([cx - Rr, 1180 - Rr, cx + Rr, 1180 + Rr], fill=col + (255,))
             d.text((cx, 1176), num, font=inter(int(110 * Rr / 120) + 1, 'Black'), fill=tc + (255,), anchor='mm')
             d.text((cx, 1340), 'arcano · ' + lab, font=inter(38, 'SemiBold'), fill=(230, 255, 245, 255), anchor='mm')
-        if P(s, t, 2, .6) > 1.3: ctext(d, 1150, '→', inter(80, 'Bold'), (255, 255, 255), 1)
+        if t > META[s]['pelo'] + .2: ctext(d, 1150, '→', inter(80, 'Bold'), (255, 255, 255), 1)
     return im
 
 SHOT = Image.open('/home/claude/repo/azovah-landing-page/site/assets/shot_inicio_m.webp').convert('RGB')
@@ -221,7 +220,7 @@ def s7(t):
         im.paste(ph, (70, int(330 + 80 * (1 - p))), ph)
     span = c[1][1] - c[1][0]
     for i, ft in enumerate(FEATS):
-        st = c[0][0] + 1.0 if i == 0 else c[1][0] + span * (i - 1) / 4
+        st = META[s]['feat'][i] - .1
         q = eb((t - st) / .45)
         if q <= 0: continue
         x = 590 + 40 * (1 - min(1, q)); y = 420 + i * 175
@@ -252,42 +251,36 @@ def s5(t):
 
 LOGO = Image.open('/home/claude/repo/azovah-landing-page/site/assets/logo_branca.webp').convert('RGBA')
 def s8(t):
-    im = frame(t, 's8'); d = AD(im, 'RGBA')
-    # raios de luz girando
-    p = eo(t / 1.2)
-    ray = Image.new('RGBA', (W, H)); rd = ImageDraw.Draw(ray)
-    cx, cy = W / 2, 860
-    for i in range(24):
-        a0 = math.radians(i * 15 + t * 12)
-        rd.polygon([(cx, cy), (cx + 1400 * math.cos(a0 - .03), cy + 1400 * math.sin(a0 - .03)), (cx + 1400 * math.cos(a0 + .03), cy + 1400 * math.sin(a0 + .03))], fill=(255, 200, 120, int(26 * p)))
-    ray = ray.filter(ImageFilter.GaussianBlur(6)); im.paste(ray, (0, 0), ray)
-    # brilho
-    g = Image.new('RGBA', (W, H)); gd = ImageDraw.Draw(g)
-    for r in range(420, 0, -10): gd.ellipse([cx - r, cy - r, cx + r, cy + r], fill=(255, 214, 150, int(70 * p * (1 - r / 420) ** 2)))
-    g = g.filter(ImageFilter.GaussianBlur(24)); im.paste(g, (0, 0), g)
-    # anel dourado desenhando
-    q = eo((t - .2) / 1.4)
-    if q > 0: d.arc([cx - 330, cy - 330, cx + 330, cy + 330], -90, -90 + 360 * q, fill=(232, 176, 74, 255), width=6)
-    # logo
-    s = eb((t - .5) / .9)
-    if s > 0:
-        w = int(760 * (0.75 + .25 * min(1, s))); h = int(w * LOGO.height / LOGO.width)
-        lg = LOGO.resize((w, h), Image.LANCZOS)
-        lg.putalpha(lg.getchannel('A').point(lambda v: int(v * min(1, s))))
-        im.paste(lg, (int(cx - w / 2), int(cy - h / 2)), lg)
-    # brilho passando (shine)
-    sh = (t - 1.6) / .9
+    # vinheta: fundo escuro limpo + logo com animação sutil (fade, leve zoom, brilho respirando, reflexo)
+    im = Image.new('RGB', (W, H))
+    g = Image.new('RGB', (W, H)); gd = ImageDraw.Draw(g)
+    for y in range(0, H, 4):
+        k = y / H; c = (int(34 - 18 * k), int(4 - 3 * k), int(14 - 8 * k)); gd.rectangle([0, y, W, y + 4], fill=c)
+    im = g
+    cx, cy = W / 2, H / 2
+    a = eo((t - .3) / 1.3)
+    br = .5 + .5 * math.sin((t - .3) * 1.6)
+    gl = Image.new('RGBA', (W, H)); gld = ImageDraw.Draw(gl)
+    for r in range(460, 0, -12): gld.ellipse([cx - r * 1.4, cy - r, cx + r * 1.4, cy + r], fill=(255, 150, 190, int(a * (26 + 14 * br) * (1 - r / 460) ** 2)))
+    gl = gl.filter(ImageFilter.GaussianBlur(30)); im.paste(gl, (0, 0), gl)
+    sc = 0.94 + 0.06 * eo((t - .3) / 3.5)
+    w = int(780 * sc); h = int(w * LOGO.height / LOGO.width)
+    lg = LOGO.resize((w, h), Image.LANCZOS)
+    # reflexo passando, preso ao desenho da logo
+    sh = (t - 1.9) / 1.1
     if 0 < sh < 1:
-        x = -300 + sh * (W + 600)
-        band = Image.new('RGBA', (W, H)); bd = ImageDraw.Draw(band)
-        bd.polygon([(x, cy - 200), (x + 90, cy - 200), (x - 30, cy + 200), (x - 120, cy + 200)], fill=(255, 255, 255, 90))
-        band = band.filter(ImageFilter.GaussianBlur(14)); im.paste(band, (0, 0), band)
-    a = eo((t - 1.8) / .6)
-    ctext(d, cy + 380, 'INSTITUTO DE NUMEROLOGIA CABALÍSTICA', inter(36, 'Bold'), (232, 176, 74), a)
-    ctext(d, cy + 440, 'azovah.com', inter(44, 'SemiBold'), (255, 230, 238), eo((t - 2.2) / .6))
-    # fade final para preto
-    if t > VIN - .6:
-        k = (t - (VIN - .6)) / .6; im = Image.blend(im, Image.new('RGB', (W, H)), min(1, k))
+        band = Image.new('L', (w, h)); bd = ImageDraw.Draw(band)
+        x = -200 + sh * (w + 400)
+        bd.polygon([(x, 0), (x + 70, 0), (x - 60, h), (x - 130, h)], fill=170)
+        band = band.filter(ImageFilter.GaussianBlur(10))
+        alpha = lg.getchannel('A')
+        from PIL import ImageChops
+        m = ImageChops.multiply(band, alpha)
+        lg = Image.composite(Image.new('RGBA', (w, h), (255, 236, 200, 255)), lg, m)
+    lg.putalpha(lg.getchannel('A').point(lambda v: int(v * a)))
+    im.paste(lg, (int(cx - w / 2), int(cy - h / 2 - 10 * (1 - a))), lg)
+    if t > VIN - .7:
+        k = (t - (VIN - .7)) / .7; im = Image.blend(im, Image.new('RGB', (W, H)), min(1, k))
     return im
 
 FN = dict(s8=s8, s1=s1, s2=s2, s3=s3, s4=s4, s6=s6, s7=s7, s5=s5)
@@ -314,7 +307,7 @@ if __name__ == '__main__':
     elif cmd == 'still':
         ims = []
         for s in ORDER:
-            c = META[s]['cues']; t = c[-1][1] - .1 if c else 2.6
+            c = META[s]['cues']; t = c[-1][1] - .1 if c else 2.4
             ims.append(full(s, t).convert('RGB').resize((270, 480)))
         m = Image.new('RGB', (270 * len(ims), 480)); [m.paste(x, (i * 270, 0)) for i, x in enumerate(ims)]; m.save(f'{OUT}/sheet.jpg', quality=85)
     else: render(int(cmd))

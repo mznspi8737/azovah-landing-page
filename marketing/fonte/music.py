@@ -51,11 +51,10 @@ for k,n in enumerate([72,76,79,84,88,91,96]):
 cut=int(VS*SR); fadeN=int(.4*SR)
 base=mus.copy()
 # voz
-vv=[]
-for s in order:
-    if s=='s8': vv.append(np.zeros(int(round(M[s]['dur']*24000)))); continue
-    a=np.load(f'{O}/{s}.npy'); n=int(round(M[s]['dur']*24000)); vv.append(np.pad(a,(0,max(0,n-len(a))))[:n])
-v24=np.concatenate(vv); v=np.interp(np.arange(N)/SR*24000, np.arange(len(v24)), v24); v=v/np.abs(v).max()*.9
+import subprocess
+subprocess.run(['ffmpeg','-y','-loglevel','error','-i','/mnt/user-data/uploads/73314e05-ElevenLabs_2026-11-27T00_37_08_Roger_-_Laid-Back_Casual_Resonant_pre_s50_sim75_v4.mp3','-ac','1','-ar',str(SR),'/tmp/voz44.wav'],check=True)
+ww=wave.open('/tmp/voz44.wav'); vr=np.frombuffer(ww.readframes(ww.getnframes()),'<i2').astype(np.float32)/32768
+v=np.zeros(N); i=int(0.5*SR); v[i:i+len(vr)]=vr[:N-i]; v=v/np.abs(v).max()*.9
 # ducking + volume
 env=np.convolve(np.abs(v),np.ones(int(.25*SR))/int(.25*SR),'same')
 duck=np.where(env>.02,.22,.38)
@@ -67,5 +66,5 @@ lvl*=np.minimum(1,t/1.5)
 out=v+mus/np.abs(mus).max()*lvl*.9
 out[t>D-.8]*=np.linspace(1,0,(t>D-.8).sum())
 out=out/np.abs(out).max()*.95
-w=wave.open(O+'/audio2.wav','wb');w.setnchannels(1);w.setsampwidth(2);w.setframerate(SR);w.writeframes((out*32767).astype('<i2').tobytes());w.close()
+w=wave.open(O+'/audio3.wav','wb');w.setnchannels(1);w.setsampwidth(2);w.setframerate(SR);w.writeframes((out*32767).astype('<i2').tobytes());w.close()
 open(O+'/l.txt','w').write(''.join(f"file '{O}/{s}.mp4'\n" for s in order)); print(D,VS)
