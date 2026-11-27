@@ -39,7 +39,7 @@ CAP = {
  's6': [None, None, "Troca o arcano 15, mais pesado, pelo 45, muito mais favorável."],
 }
 ORDER = ['s1', 's2', 's3', 's4', 's6', 's7', 's5', 's8']
-VIN = 4.5
+VIN = 6.0
 LEAD, GAP, TAIL = 0.45, 0.28, 0.7
 SR = 24000
 OUT = '/home/claude/reels/v2'; os.makedirs(OUT, exist_ok=True)
