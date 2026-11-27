@@ -254,7 +254,6 @@ def c7(t):  # o sistema + chamada
         L = Image.new('RGBA', (W, H)); d = ImageDraw.Draw(L); bw, bh = 780, 128; bx, by = (W - bw) / 2, 1560 + 20 * (1 - b); s = 1 + .025 * math.sin(t * 5)
         d.rounded_rectangle([bx - (s - 1) * bw / 2, by, bx + bw * s - (s - 1) * bw / 2, by + bh], 64, fill=(255, 255, 255, int(255 * b)))
         d.text((W / 2, by + bh / 2), 'Calcule grátis · link na bio', font=INTER('ExtraBold', 46), fill=(130, 20, 70, int(255 * b)), anchor='mm')
-        d.text((W / 2, by + bh + 58), 'Planos a partir de R$ 62/mês', font=INTER('SemiBold', 38), fill=(240, 200, 140, int(255 * b)), anchor='mm')
         im.alpha_composite(L)
     return finish(im.convert('RGB'))
 
