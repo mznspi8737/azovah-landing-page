@@ -688,7 +688,7 @@ footer::before{content:"";position:absolute;inset:0;z-index:-1;background:linear
   <div class="wrap">
     <div class="sec-h c rv"><span class="eyebrow">Veja por dentro</span><h2>O sistema em movimento</h2><p class="lead">Cada tela do AZOVAH, no computador e no celular, com o visual novo.</p></div>
     <div class="tour-g">
-      <div class="vbox rv"><video id="vD" src="assets/tour5_d.mp4" poster="assets/poster5_d.jpg" muted loop playsinline preload="none" aria-label="Tour do AZOVAH no computador"></video><button class="som" id="somT" type="button" aria-pressed="false" aria-label="Ativar som do vídeo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5L6 9H3v6h3l5 4z" fill="currentColor" stroke="none"/><path class="on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/><path class="off" d="M16 9l6 6M22 9l-6 6"/></svg><span>Ativar som</span></button><audio id="aT" src="assets/tour_trilha.mp3" loop preload="none"></audio><button class="play" data-v="vD" type="button"><svg><use href="#i-pause"/></svg><span>Pausar</span></button></div>
+      <div class="vbox rv"><video id="vD" src="assets/tour5_d.mp4" poster="assets/poster5_d.jpg" muted loop playsinline preload="none" aria-label="Tour do AZOVAH no computador"></video><button class="som" id="somT" type="button" aria-pressed="false" aria-label="Ativar som do vídeo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5L6 9H3v6h3l5 4z" fill="currentColor" stroke="none"/><path class="on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/><path class="off" d="M16 9l6 6M22 9l-6 6"/></svg><span>Ouvir narração</span></button><audio id="aT" src="assets/tour_narracao.mp3" preload="none"></audio><button class="play" data-v="vD" type="button"><svg><use href="#i-pause"/></svg><span>Pausar</span></button></div>
       <div class="vphone rv"><video id="vM" src="assets/tour5_m.mp4" poster="assets/poster5_m.jpg" muted loop playsinline preload="none" aria-label="Tour do AZOVAH no celular"></video></div>
     </div>
     <div class="vtags rv" id="vtags"></div>
@@ -988,10 +988,10 @@ const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIn
 ['#vD','#vM'].forEach(s=>vio.observe($(s)));
 
 // trilha do tour: só toca quando a pessoa ativa; acompanha o play/pausa e a rolagem
-{const a=$('#aT'),b=$('#somT'),v=$('#vD');if(a&&b&&v){a.volume=0;let alvo=.55,fadeT;const fade=(to,ms=600)=>{clearInterval(fadeT);const st=a.volume,t0=performance.now();fadeT=setInterval(()=>{const k=Math.min(1,(performance.now()-t0)/ms);a.volume=st+(to-st)*k;if(k>=1){clearInterval(fadeT);if(to===0)a.pause()}},30)};
- const set=on=>{b.setAttribute('aria-pressed',on);b.querySelector('span').textContent=on?'Som ativado':'Ativar som';b.setAttribute('aria-label',on?'Desativar som do vídeo':'Ativar som do vídeo')};
+{const a=$('#aT'),b=$('#somT'),v=$('#vD');if(a&&b&&v){a.volume=0;let alvo=.9,fadeT;const fade=(to,ms=600)=>{clearInterval(fadeT);const st=a.volume,t0=performance.now();fadeT=setInterval(()=>{const k=Math.min(1,(performance.now()-t0)/ms);a.volume=st+(to-st)*k;if(k>=1){clearInterval(fadeT);if(to===0)a.pause()}},30)};
+ const set=on=>{b.setAttribute('aria-pressed',on);b.querySelector('span').textContent=on?'Som ativado':'Ouvir narração';b.setAttribute('aria-label',on?'Desativar som do vídeo':'Ativar som do vídeo')};
  b.onclick=()=>{if(b.getAttribute('aria-pressed')==='true'){fade(0);set(false)}else{a.play().then(()=>fade(alvo)).catch(()=>{});set(true);if(v.paused){v.play();const m=$('#vM');if(m)m.play()}}};
- v.addEventListener('pause',()=>{if(!a.paused)fade(0)});v.addEventListener('play',()=>{if(b.getAttribute('aria-pressed')==='true'){a.play().then(()=>fade(alvo)).catch(()=>{})}});}}
+ a.addEventListener('ended',()=>{set(false);a.currentTime=0});v.addEventListener('pause',()=>{if(!a.paused)fade(0)});v.addEventListener('play',()=>{if(b.getAttribute('aria-pressed')==='true'){a.play().then(()=>fade(alvo)).catch(()=>{})}});}}
 $$('.play').forEach(b=>b.onclick=()=>{const v=$('#'+b.dataset.v),m=$('#vM');if(v.paused){v.play();m.play();v.dataset.user='';b.innerHTML='<svg><use href="#i-pause"/></svg><span>Pausar</span>'}else{v.pause();m.pause();v.dataset.user='1';b.innerHTML='<svg><use href="#i-play"/></svg><span>Continuar</span>'}});
 
 /* ---------- depoimentos (ilustrativos) ---------- */
