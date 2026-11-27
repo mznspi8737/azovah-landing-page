@@ -243,6 +243,9 @@ h2{font:700 clamp(30px,4.2vw,50px)/1.08 var(--serif)}
 .vtags span{padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);font:600 13px var(--sans);color:rgba(255,255,255,.8)}
 .vtags span b{font-family:var(--mono);color:var(--pk2);margin-right:6px}
 .play{position:absolute;right:22px;bottom:22px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:0;background:rgba(0,0,0,.55);color:#fff;font:700 12.5px var(--sans);backdrop-filter:blur(8px)}
+.som{position:absolute;right:140px;bottom:22px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:0;background:rgba(0,0,0,.55);color:#fff;font:700 12.5px var(--sans);backdrop-filter:blur(8px);cursor:pointer;transition:background .2s,transform .2s}
+.som:hover{transform:translateY(-1px);background:rgba(0,0,0,.7)}.som svg{width:16px;height:16px}.som .on{display:none}.som[aria-pressed=true] .on{display:inline}.som[aria-pressed=true] .off{display:none}.som[aria-pressed=true]{background:linear-gradient(135deg,#e0457f,#8e1248)}
+@media(max-width:600px){.som{right:auto;left:12px;bottom:12px;padding:6px 11px;font-size:11px}.som svg{width:13px;height:13px}}
 .play svg{width:14px;height:14px}
 
 /* assinatura */
@@ -685,7 +688,7 @@ footer::before{content:"";position:absolute;inset:0;z-index:-1;background:linear
   <div class="wrap">
     <div class="sec-h c rv"><span class="eyebrow">Veja por dentro</span><h2>O sistema em movimento</h2><p class="lead">Cada tela do AZOVAH, no computador e no celular, com o visual novo.</p></div>
     <div class="tour-g">
-      <div class="vbox rv"><video id="vD" src="assets/tour5_d.mp4" poster="assets/poster5_d.jpg" muted loop playsinline preload="none" aria-label="Tour do AZOVAH no computador"></video><button class="play" data-v="vD" type="button"><svg><use href="#i-pause"/></svg><span>Pausar</span></button></div>
+      <div class="vbox rv"><video id="vD" src="assets/tour5_d.mp4" poster="assets/poster5_d.jpg" muted loop playsinline preload="none" aria-label="Tour do AZOVAH no computador"></video><button class="som" id="somT" type="button" aria-pressed="false" aria-label="Ativar som do vídeo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5L6 9H3v6h3l5 4z" fill="currentColor" stroke="none"/><path class="on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/><path class="off" d="M16 9l6 6M22 9l-6 6"/></svg><span>Ativar som</span></button><audio id="aT" src="assets/tour_trilha.mp3" loop preload="none"></audio><button class="play" data-v="vD" type="button"><svg><use href="#i-pause"/></svg><span>Pausar</span></button></div>
       <div class="vphone rv"><video id="vM" src="assets/tour5_m.mp4" poster="assets/poster5_m.jpg" muted loop playsinline preload="none" aria-label="Tour do AZOVAH no celular"></video></div>
     </div>
     <div class="vtags rv" id="vtags"></div>
@@ -983,6 +986,12 @@ $('#calc').addEventListener('submit',e=>{e.preventDefault();const nm=$('#cN').va
 $('#vtags').innerHTML=['Central de Controle','Mentor AZOVAH','Análise do nome','Triângulo invertido','Matriz triângulo','Gráfico com triângulo','Monte sua assinatura','Terapêutico','Compatibilidade','Calendário favorável','Consultório PRO','Antes da numerologia','Análise da assinatura','Os arcanos','Empresas','Endereços e placas','Meus mapas','Aprender','Seu perfil'].map((t,i)=>`<span><b>${String(i+1).padStart(2,'0')}</b>${t}</span>`).join('');
 const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.dataset.user){v.preload='auto';v.play().catch(()=>{})}}else v.pause()}),{threshold:.25});
 ['#vD','#vM'].forEach(s=>vio.observe($(s)));
+
+// trilha do tour: só toca quando a pessoa ativa; acompanha o play/pausa e a rolagem
+{const a=$('#aT'),b=$('#somT'),v=$('#vD');if(a&&b&&v){a.volume=0;let alvo=.55,fadeT;const fade=(to,ms=600)=>{clearInterval(fadeT);const st=a.volume,t0=performance.now();fadeT=setInterval(()=>{const k=Math.min(1,(performance.now()-t0)/ms);a.volume=st+(to-st)*k;if(k>=1){clearInterval(fadeT);if(to===0)a.pause()}},30)};
+ const set=on=>{b.setAttribute('aria-pressed',on);b.querySelector('span').textContent=on?'Som ativado':'Ativar som';b.setAttribute('aria-label',on?'Desativar som do vídeo':'Ativar som do vídeo')};
+ b.onclick=()=>{if(b.getAttribute('aria-pressed')==='true'){fade(0);set(false)}else{a.play().then(()=>fade(alvo)).catch(()=>{});set(true);if(v.paused){v.play();const m=$('#vM');if(m)m.play()}}};
+ v.addEventListener('pause',()=>{if(!a.paused)fade(0)});v.addEventListener('play',()=>{if(b.getAttribute('aria-pressed')==='true'){a.play().then(()=>fade(alvo)).catch(()=>{})}});}}
 $$('.play').forEach(b=>b.onclick=()=>{const v=$('#'+b.dataset.v),m=$('#vM');if(v.paused){v.play();m.play();v.dataset.user='';b.innerHTML='<svg><use href="#i-pause"/></svg><span>Pausar</span>'}else{v.pause();m.pause();v.dataset.user='1';b.innerHTML='<svg><use href="#i-play"/></svg><span>Continuar</span>'}});
 
 /* ---------- depoimentos (ilustrativos) ---------- */
