@@ -1,7 +1,7 @@
 # Trilha cinematográfica: pad etéreo + piano suave + pulso leve; cresce no final e toca com a logo
 import numpy as np, wave
 SR = 44100; D = 5.5 * 4 + 4.5 + 9 + 5.5 + 4.5 - 0.5 * 0  # 45.5
-D = 45.5; N = int(D * SR); t = np.arange(N) / SR
+D = 50.0; N = int(D * SR); t = np.arange(N) / SR
 rng = np.random.default_rng(2)
 def midi(n): return 440 * 2 ** ((n - 69) / 12)
 out = np.zeros(N)

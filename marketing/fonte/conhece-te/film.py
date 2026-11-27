@@ -56,10 +56,28 @@ def lilac():
     im.alpha_composite(b.filter(ImageFilter.GaussianBlur(30))); return im.resize((W, H), Image.BICUBIC).convert('RGB')
 BG_LILAC = lilac()
 
+# textura de números místicos (flutuando devagar, bem sutil)
+def numtex(col, amax, seed):
+    r = random.Random(seed); L = Image.new('RGBA', (W, H * 2)); d = ImageDraw.Draw(L)
+    for _ in range(150):
+        f = F(r.choice(['Corm500.ttf', 'Corm600i.ttf', 'Cinzel600.ttf']), r.choice([36, 48, 64, 90, 130, 180]))
+        d.text((r.uniform(-40, W), r.uniform(0, H * 2)), r.choice('123456789' + '1122334455667788991122'), font=f, fill=col + (r.randint(int(amax * .35), amax),))
+    for _ in range(14):  # pequenos triângulos e círculos sagrados
+        x, y, s = r.uniform(0, W), r.uniform(0, H * 2), r.uniform(30, 90)
+        if r.random() < .5: d.polygon([(x, y - s), (x + s * .87, y + s * .5), (x - s * .87, y + s * .5)], outline=col + (amax,), width=2)
+        else: d.ellipse([x - s, y - s, x + s, y + s], outline=col + (amax,), width=2)
+    L = L.filter(ImageFilter.GaussianBlur(1.2)); top = L.crop((0, 0, W, H)); L.paste(top, (0, H), top)  # emenda para rolar sem corte
+    return L
+NUM_D = numtex((255, 226, 180), 34, 11); NUM_L = numtex((90, 50, 150), 30, 12)
+def numlayer(im, t, light=False):
+    L = NUM_L if light else NUM_D; y = int((t * 14) % H)
+    return Image.alpha_composite(im.convert('RGBA'), L.crop((0, H - y, W, 2 * H - y)))
+
 def kenburns(bg, t, dur, z0=1.0, z1=1.12, dy=0):
     z = z0 + (z1 - z0) * eio(t / dur); w, h = int(W / z), int(H / z)
     x = (W - w) // 2; y = int((H - h) / 2 + dy * eio(t / dur)); y = max(0, min(H - h, y))
-    return bg.crop((x, y, x + w, y + h)).resize((W, H), Image.BILINEAR)
+    im = bg.crop((x, y, x + w, y + h)).resize((W, H), Image.BILINEAR)
+    return numlayer(im, t + dur * 3 + (7 if bg is BG_NIGHT else 0), light=bg is BG_LILAC)
 
 def vignette():
     v = Image.new('L', (W, H), 0); d = ImageDraw.Draw(v)
@@ -258,10 +276,11 @@ def c7(t):  # o sistema + chamada
     return finish(im.convert('RGB'))
 
 LOGO = Image.open('/home/claude/repo/azovah-landing-page/site/assets/logo_branca.webp').convert('RGBA')
-def c8(t, dur=4.5):  # vinheta só com a logo
+def c8(t, dur=9.0):  # vinheta só com a logo
     g = Image.new('RGB', (W, H)); gd = ImageDraw.Draw(g)
     for y in range(0, H, 4): k = y / H; gd.rectangle([0, y, W, y + 4], fill=(int(30 - 18 * k), int(4 - 3 * k), int(14 - 8 * k)))
     im = g.convert('RGBA'); a = eo((t - .3) / 1.3); br = .5 + .5 * math.sin((t - .3) * 1.6)
+    im = numlayer(im, t + 40)
     im = glow_orb(im, W / 2, H / 2, 520, (255, 150, 190), a * (.55 + .2 * br))
     im = particles(im, t + 40, .5 * a)
     sc = .94 + .06 * eo((t - .3) / 3.5); w = int(780 * sc); h = int(w * LOGO.height / LOGO.width); lg = LOGO.resize((w, h), Image.LANCZOS)
@@ -275,7 +294,7 @@ def c8(t, dur=4.5):  # vinheta só com a logo
     if t > dur - .7: im = Image.blend(im, Image.new('RGB', (W, H)), min(1, (t - (dur - .7)) / .7))
     return im
 
-SC = [('c1', c1, 5.5), ('c2', c2, 5.5), ('c3', c3, 5.5), ('c4', c4, 5.5), ('c5', c5, 4.5), ('c6', c6, 9.0), ('c7', c7, 5.5), ('c8', c8, 4.5)]
+SC = [('c1', c1, 5.5), ('c2', c2, 5.5), ('c3', c3, 5.5), ('c4', c4, 5.5), ('c5', c5, 4.5), ('c6', c6, 9.0), ('c7', c7, 5.5), ('c8', c8, 9.0)]
 XF = .5
 def render(i):
     name, fn, dur = SC[i]; n = int(round(dur * FPS)); nxt = SC[i + 1][1] if i + 1 < len(SC) else None
@@ -290,7 +309,7 @@ def render(i):
 
 if __name__ == '__main__':
     if sys.argv[1] == 'still':
-        ims = [fn(d * .75).resize((216, 384)) for _, fn, d in SC]
+        ims = [fn(d * .75 if n != 'c8' else 3.0).resize((216, 384)) for n, fn, d in SC]
         m = Image.new('RGB', (216 * 4, 384 * 2)); [m.paste(x, ((i % 4) * 216, (i // 4) * 384)) for i, x in enumerate(ims)]; m.save(f'{OUT}/sheet.jpg', quality=85)
     else:
         for i in map(int, sys.argv[1:]): render(i)
